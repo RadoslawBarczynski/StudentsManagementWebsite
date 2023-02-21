@@ -2,32 +2,31 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SchoolGradeManager.Models;
+using SchoolGradeManager.Repositories;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.Xml;
 
 namespace SchoolGradeManager.Controllers
 {
     public class StudentController : Controller
     {
-        private static IList<Student> students = new List<Student>()
+        private readonly IStudentRepository _studentRepository;
+
+        public StudentController(IStudentRepository studentRepository)
         {
-            new Student()
-            {
-                Id = 1,
-                StudentFirstName = "Radosław",
-                StudentLastName = "Barczyński",
-                StudentEmail = "radbar@utp.edu.pl"
-            }
-        };
+            _studentRepository = studentRepository;
+        }
 
         // GET: StudentController
         public ActionResult Index()
         {
-            return View(students);
+            return View(_studentRepository.GetAllActive());
         }
 
         // GET: StudentController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(_studentRepository.Get(id));
         }
 
         // GET: StudentController/Create
@@ -41,51 +40,42 @@ namespace SchoolGradeManager.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Student student)
         {
-            student.Id = students.Count + 1;
-            students.Add(student);            
+            _studentRepository.Add(student);
+            
             return RedirectToAction(nameof(Index));
         }
 
         // GET: StudentController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(_studentRepository.Get(id));
         }
 
         // POST: StudentController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, Student student)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            _studentRepository.Update(id, student);
+
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: StudentController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(_studentRepository.Get(id));
         }
 
         // POST: StudentController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, Student student)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            _studentRepository.Delete(id);
+
+            return RedirectToAction(nameof(Index));
         }
+
     }
 }

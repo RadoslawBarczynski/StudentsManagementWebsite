@@ -1,7 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using SchoolGradeManager.Models;
+using SchoolGradeManager.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<StudentManagerContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("StudentManagerDatabase")));
+
+//dependecny injection
+builder.Services.AddTransient<IStudentRepository, StudentRepository>();
 
 var app = builder.Build();
 
