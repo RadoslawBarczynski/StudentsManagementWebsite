@@ -1,0 +1,66 @@
+﻿@model IEnumerable<SchoolGradeManager.Models.Grade>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="h4">Table of active students</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Create New Student</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.G_Math)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.G_English)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.G_Biology)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.G_History)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.G_Geography)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.G_PE)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => item.G_Math)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.G_English)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.G_Biology)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.G_History)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.G_Geography)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.G_PE)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new {  id=item.GradeId  }, new {@class = "btn btn-primary"})
+                    @Html.ActionLink("Details", "Details", new {  id=item.GradeId  }, new {@class = "btn btn-secondary"})
+                    @Html.ActionLink("Delete", "Delete", new {  id=item.GradeId  }, new {@class = "btn btn-danger"})
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

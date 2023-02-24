@@ -11,6 +11,7 @@ builder.Services.AddDbContext<StudentManagerContext>(options =>
 
 //dependecny injection
 builder.Services.AddTransient<IStudentRepository, StudentRepository>();
+builder.Services.AddTransient<IGradeRepository, GradeRepository>();
 
 var app = builder.Build();
 

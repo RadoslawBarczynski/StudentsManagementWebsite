@@ -29,6 +29,46 @@
             @Html.DisplayFor(model => model.StudentEmail)
         </dd>
     </dl>
+    <h4 class="h4">Grades</h4>
+    <hr />
+    <dl class="rowGrade">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.grade.G_Math)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.grade.G_Math)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.grade.G_English)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.grade.G_English)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.grade.G_Biology)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.grade.G_Biology)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.grade.G_History)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.grade.G_History)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.grade.G_Geography)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.grade.G_Geography)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.grade.G_PE)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.grade.G_PE)
+        </dd>
+    </dl>
 </div>
 <div>
     @Html.ActionLink("Edit", "Edit", new {  id = Model.Id  }, new {@class ="btn btn-success"}) |

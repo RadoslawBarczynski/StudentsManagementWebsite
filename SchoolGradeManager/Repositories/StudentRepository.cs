@@ -1,4 +1,5 @@
-﻿using SchoolGradeManager.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using SchoolGradeManager.Models;
 
 namespace SchoolGradeManager.Repositories
 {
@@ -9,7 +10,12 @@ namespace SchoolGradeManager.Repositories
         {
             _context = context;
         }
-        public Student Get(int id) => _context.students.SingleOrDefault(x => x.Id == id);
+        public Student Get(int id)
+        {
+            Student student = _context.students.SingleOrDefault(x => x.Id == id);
+            student.grade = _context.grades.SingleOrDefault(y => y.GradeId == student.GradeId);
+            return student;
+        } 
 
 
         public IQueryable<Student> GetAllActive() => _context.students;
