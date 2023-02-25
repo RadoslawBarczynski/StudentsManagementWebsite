@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using SchoolGradeManager.Models;
 using SchoolGradeManager.Repositories;
+using System.Data;
 
 namespace SchoolGradeManager.Controllers
 {
@@ -19,73 +22,36 @@ namespace SchoolGradeManager.Controllers
             return View(_gradeRepository.GetAllActive());
         }
 
-        // GET: GradeController/Details/5
-        public ActionResult Details(int id)
+        // GET: StudentController/Delete/5
+        public ActionResult Delete(int id)
         {
-            return View();
+            return View(_gradeRepository.Get(id));
         }
 
-        // GET: GradeController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: GradeController/Create
+        // POST: StudentController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Delete(int id, Grade grade)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            _gradeRepository.Delete(id);
+
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: GradeController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(_gradeRepository.Get(id));
         }
 
         // POST: GradeController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, Grade grade)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+            _gradeRepository.Update(id, grade);
 
-        // GET: GradeController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: GradeController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(Index));
         }
     }
 }

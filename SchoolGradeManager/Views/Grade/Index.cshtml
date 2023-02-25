@@ -4,14 +4,86 @@
     ViewData["Title"] = "Index";
 }
 
-<h1 class="h4">Table of active students</h1>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
-<p>
-    <a class="btn btn-primary" asp-action="Create">Create New Student</a>
-</p>
+<figure class="highcharts-figure">
+    <div id="container"></div>
+    <p class="highcharts-description">
+        This pie chart shows how the chart legend can be used to provide
+        information about the individual slices.
+    </p>
+</figure>
+<script>
+    Highcharts.chart('container', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Browser market shares in March, 2022',
+            align: 'left'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        accessibility: {
+            point: {
+                valueSuffix: '%'
+            }
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: 'Brands',
+            colorByPoint: true,
+            data: [{
+                name: 'Chrome',
+                y: 74.77,
+                sliced: true,
+                selected: true
+            }, {
+                name: 'Edge',
+                y: 12.82
+            }, {
+                name: 'Firefox',
+                y: 4.63
+            }, {
+                name: 'Safari',
+                y: 2.44
+            }, {
+                name: 'Internet Explorer',
+                y: 2.02
+            }, {
+                name: 'Other',
+                y: 3.28
+            }]
+        }]
+    });
+</script>
+
+
+
+<h1 class="h4">Table of grades</h1>
+
 <table class="table">
     <thead>
         <tr>
+            <th>
+                Name
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.G_Math)
             </th>
@@ -38,6 +110,9 @@
         {
             <tr>
                 <td>
+                    @Html.DisplayFor(model => item.student.StudentFirstName)
+                </td>
+                <td>
                     @Html.DisplayFor(model => item.G_Math)
                 </td>
                 <td>
@@ -57,10 +132,11 @@
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new {  id=item.GradeId  }, new {@class = "btn btn-primary"})
-                    @Html.ActionLink("Details", "Details", new {  id=item.GradeId  }, new {@class = "btn btn-secondary"})
                     @Html.ActionLink("Delete", "Delete", new {  id=item.GradeId  }, new {@class = "btn btn-danger"})
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+

@@ -9,13 +9,17 @@ namespace SchoolGradeManager.Repositories
         public StudentRepository(StudentManagerContext context)
         {
             _context = context;
+            foreach (Student student in _context.students)
+            {
+                student.grade = _context.grades.SingleOrDefault(z => z.GradeId == student.GradeId);
+            }
         }
         public Student Get(int id)
         {
             Student student = _context.students.SingleOrDefault(x => x.Id == id);
             student.grade = _context.grades.SingleOrDefault(y => y.GradeId == student.GradeId);
             return student;
-        } 
+        }
 
 
         public IQueryable<Student> GetAllActive() => _context.students;
@@ -24,6 +28,17 @@ namespace SchoolGradeManager.Repositories
         public void Add(Student student)
         {
             _context.students.Add(student);
+            //basic grade template
+            Grade grade = new Grade();
+            grade.G_Math = "C";
+            grade.G_English = "C";
+            grade.G_Biology = "C";
+            grade.G_History = "C";
+            grade.G_Geography = "C";
+            grade.G_PE = "C";
+            grade.student = student;
+
+            _context.grades.Add(grade);
             _context.SaveChanges();
         }
         public void Delete(int id)
@@ -31,6 +46,7 @@ namespace SchoolGradeManager.Repositories
             var result = _context.students.SingleOrDefault(x => x.Id == id);
             if(result != null)
             {
+                _context.grades.Remove(result.grade);
                 _context.students.Remove(result);
                 _context.SaveChanges();
             }

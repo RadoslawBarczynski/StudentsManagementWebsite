@@ -6,8 +6,9 @@ namespace SchoolGradeManager.Repositories
     {
         Grade Get(int id);
         IQueryable<Grade> GetAllActive();
-        void Add(Grade grade);
-        void Update(int id, Grade grade);
+
+
         void Delete(int id);
+        void Update(int id, Grade grade);
     }
 }
