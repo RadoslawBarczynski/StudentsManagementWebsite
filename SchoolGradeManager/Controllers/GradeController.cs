@@ -4,6 +4,8 @@ using Microsoft.Data.SqlClient;
 using SchoolGradeManager.Models;
 using SchoolGradeManager.Repositories;
 using System.Data;
+using Microsoft.Extensions.Configuration;
+
 
 namespace SchoolGradeManager.Controllers
 {
@@ -13,7 +15,7 @@ namespace SchoolGradeManager.Controllers
 
         public GradeController(IGradeRepository gradeRepository)
         {
-            _gradeRepository = gradeRepository;
+            _gradeRepository = gradeRepository;            
         }
 
         // GET: GradeController
@@ -52,6 +54,43 @@ namespace SchoolGradeManager.Controllers
             _gradeRepository.Update(id, grade);
 
             return RedirectToAction(nameof(Index));
+        }
+
+        public JsonResult DashBoardCount()
+        {
+            try
+            {
+                string[] DashboardCount = new string[2];
+                SqlConnection con = new SqlConnection("Server=(localdb)\\MSSQLLocalDB;Database=StudentManagementDB;Trusted_Connection=True;MultipleActiveResultSets=true;");
+                con.Open();
+                //SqlCommand cmd = new SqlCommand("select count(Math) as MathB,(select count(Math) from Grade where Math = 'A') as MathA from Grade where Math = 'B'");
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "select count(Math) as MathB,(select count(Math) from Grade where Math = 'A') as MathA from Grade where Math = 'B'";
+                cmd.CommandTimeout = 15;
+                cmd.CommandType = CommandType.Text;
+                DataTable dt = new DataTable();
+                SqlDataAdapter cmd1 = new SqlDataAdapter(cmd);
+                cmd1.Fill(dt);
+                Console.WriteLine("This is db context: " + dt.Rows[0]["MathB"].ToString());
+                if (dt.Rows.Count == 0)
+                {
+                    DashboardCount[0] = "0";
+                    DashboardCount[1] = "0";
+                }
+                else
+                {
+                    DashboardCount[0] = dt.Rows[0]["MathB"].ToString();
+                    DashboardCount[1] = dt.Rows[0]["MathA"].ToString();
+                    Console.WriteLine(DashboardCount[0]);
+                    Console.WriteLine(DashboardCount[1]);
+                }
+
+                return Json(DashboardCount);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

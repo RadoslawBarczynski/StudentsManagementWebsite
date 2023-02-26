@@ -1,4 +1,7 @@
-﻿using SchoolGradeManager.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using SchoolGradeManager.Models;
+using System.Data;
 
 namespace SchoolGradeManager.Repositories
 {
