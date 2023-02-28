@@ -60,27 +60,28 @@ namespace SchoolGradeManager.Controllers
         {
             try
             {
-                string[] DashboardCount = new string[2];
+                string[] DashboardCount = new string[3];
                 SqlConnection con = new SqlConnection("Server=(localdb)\\MSSQLLocalDB;Database=StudentManagementDB;Trusted_Connection=True;MultipleActiveResultSets=true;");
                 con.Open();
                 //SqlCommand cmd = new SqlCommand("select count(Math) as MathB,(select count(Math) from Grade where Math = 'A') as MathA from Grade where Math = 'B'");
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "select count(Math) as MathB,(select count(Math) from Grade where Math = 'A') as MathA from Grade where Math = 'B'";
+                cmd.CommandText = "select Sum(case when Math = 'A' then 1 else 0 END +\r\n\t\t\tcase when English = 'A' then 1 else 0 END +\r\n\t\t\tcase when Biology = 'A' then 1 else 0 END +\r\n\t\t\tcase when History = 'A' then 1 else 0 END +\r\n\t\t\tcase when Geography = 'A' then 1 else 0 END +\r\n\t\t\tcase when PE = 'A' then 1 else 0 END) as A from Grade\r\n\t\t\tUNION\r\n\t\t\tselect Sum(case when Math = 'B' then 1 else 0 END +\r\n\t\t\tcase when English = 'B' then 1 else 0 END +\r\n\t\t\tcase when Biology = 'B' then 1 else 0 END +\r\n\t\t\tcase when History = 'B' then 1 else 0 END +\r\n\t\t\tcase when Geography = 'B' then 1 else 0 END +\r\n\t\t\tcase when PE = 'B' then 1 else 0 END) as B from Grade\r\n\t\t\tUNION\r\n\t\t\tselect Sum(case when Math = 'C' then 1 else 0 END +\r\n\t\t\tcase when English = 'C' then 1 else 0 END +\r\n\t\t\tcase when Biology = 'C' then 1 else 0 END +\r\n\t\t\tcase when History = 'C' then 1 else 0 END +\r\n\t\t\tcase when Geography = 'C' then 1 else 0 END +\r\n\t\t\tcase when PE = 'C' then 1 else 0 END) as C from Grade";
                 cmd.CommandTimeout = 15;
                 cmd.CommandType = CommandType.Text;
                 DataTable dt = new DataTable();
                 SqlDataAdapter cmd1 = new SqlDataAdapter(cmd);
                 cmd1.Fill(dt);
-                Console.WriteLine("This is db context: " + dt.Rows[0]["MathB"].ToString());
                 if (dt.Rows.Count == 0)
                 {
                     DashboardCount[0] = "0";
                     DashboardCount[1] = "0";
+                    DashboardCount[2] = "0";
                 }
                 else
                 {
-                    DashboardCount[0] = dt.Rows[0]["MathB"].ToString();
-                    DashboardCount[1] = dt.Rows[0]["MathA"].ToString();
+                    DashboardCount[0] = dt.Rows[0]["A"].ToString();
+                    DashboardCount[1] = dt.Rows[1]["A"].ToString();
+                    DashboardCount[2] = dt.Rows[2]["A"].ToString();
                     Console.WriteLine(DashboardCount[0]);
                     Console.WriteLine(DashboardCount[1]);
                 }

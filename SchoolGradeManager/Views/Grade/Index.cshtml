@@ -13,8 +13,7 @@
 <figure class="highcharts-figure">
     <div id="container"></div>
     <p class="highcharts-description">
-        This pie chart shows how the chart legend can be used to provide
-        information about the individual slices.
+        Pie chart that presents Grades from all students in database
     </p>
 </figure>
 <script>
@@ -30,6 +29,7 @@
                 var values = json;
                 var column1 = parseInt(values[0]);
                 var column2 = parseInt(values[1]);
+                var column3 = parseInt(values[2]);
 
                 Highcharts.chart('container', {
                     chart: {
@@ -39,7 +39,7 @@
                         type: 'pie'
                     },
                     title: {
-                        text: 'Browser market shares in March, 2022',
+                        text: 'Grades from all students in percentage',
                         align: 'left'
                     },
                     tooltip: {
@@ -71,6 +71,9 @@
                         }, {
                             name: 'B',
                             y: column2
+                        }, {
+                            name: 'C',
+                            y: column3
                         }]
                     }]
                 });
