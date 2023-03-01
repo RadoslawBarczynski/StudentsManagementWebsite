@@ -30,13 +30,9 @@ namespace SchoolGradeManager.Repositories
             _context.students.Add(student);
             //basic grade template
             Grade grade = new Grade();
-            grade.G_Math = "C";
-            grade.G_English = "C";
-            grade.G_Biology = "C";
-            grade.G_History = "C";
-            grade.G_Geography = "C";
-            grade.G_PE = "C";
+            grade.G_Score = 0;
             grade.student = student;
+            student.GradeId = grade.GradeId;
 
             _context.grades.Add(grade);
             _context.SaveChanges();

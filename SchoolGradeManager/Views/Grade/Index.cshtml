@@ -3,114 +3,20 @@
 @{
     ViewData["Title"] = "Index";
 }
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
-<script src="https://code.highcharts.com/modules/accessibility.js"></script>
-
-<figure class="highcharts-figure">
-    <div id="container"></div>
-    <p class="highcharts-description">
-        Pie chart that presents Grades from all students in database
-    </p>
-</figure>
-<script>
-    $(document).ready(function (){
-        $.ajax({
-            type:"POST",
-            url: 'Grade/DashBoardCount',
-            data: JSON.stringify({}),
-            contentType: "application/json:charset=utf-8",
-            dataType: "json",
-            success: function(json){                
-                debugger
-                var values = json;
-                var column1 = parseInt(values[0]);
-                var column2 = parseInt(values[1]);
-                var column3 = parseInt(values[2]);
-
-                Highcharts.chart('container', {
-                    chart: {
-                        plotBackgroundColor: null,
-                        plotBorderWidth: null,
-                        plotShadow: false,
-                        type: 'pie'
-                    },
-                    title: {
-                        text: 'Grades from all students in percentage',
-                        align: 'left'
-                    },
-                    tooltip: {
-                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-                    },
-                    accessibility: {
-                        point: {
-                            valueSuffix: '%'
-                        }
-                    },
-                    plotOptions: {
-                        pie: {
-                            allowPointSelect: true,
-                            cursor: 'pointer',
-                            dataLabels: {
-                                enabled: false
-                            },
-                            showInLegend: true
-                        }
-                    },
-                    series: [{
-                        name: 'Brands',
-                        colorByPoint: true,
-                        data: [{
-                            name: 'A',
-                            y: column1,
-                            sliced: true,
-                            selected: true
-                        }, {
-                            name: 'B',
-                            y: column2
-                        }, {
-                            name: 'C',
-                            y: column3
-                        }]
-                    }]
-                });
-            }
-        })
-    })
-
-    
-</script>
 
 
 
-<h1 class="h4">Table of grades</h1>
+<h1 class="h2" style="text-align: center">Table of grades</h1>
 
-<table class="table">
+<table class="table table-hover">
     <thead>
-        <tr>
+        <tr style="text-align: center">
             <th>
                 Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.G_Math)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.G_English)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.G_Biology)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.G_History)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.G_Geography)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.G_PE)
+                @Html.DisplayNameFor(model => model.G_Score)
             </th>
             <th></th>
         </tr>
@@ -118,27 +24,12 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
+            <tr style="text-align: center">
                 <td>
                     @Html.DisplayFor(model => item.student.StudentFirstName)
                 </td>
                 <td>
-                    @Html.DisplayFor(model => item.G_Math)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.G_English)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.G_Biology)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.G_History)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.G_Geography)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.G_PE)
+                    @Html.DisplayFor(model => item.G_Score)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new {  id=item.GradeId  }, new {@class = "btn btn-primary"})

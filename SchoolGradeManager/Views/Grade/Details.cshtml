@@ -1,0 +1,85 @@
+﻿@model IEnumerable<SchoolGradeManager.Models.Grade>
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+<figure class="highcharts-figure">
+    <div id="container"></div>
+    <p class="highcharts-description">
+        Pie chart that presents Grades from all students in database
+    </p>
+</figure>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            type: "POST",
+            url: '/Grade/DashBoardCount',
+            data: JSON.stringify({}),
+            contentType: "application/json:charset=utf-8",
+            dataType: "json",
+            success: function (json) {
+                debugger
+                var values = json;
+                var column1 = parseInt(values[0]);
+                var column2 = parseInt(values[1]);
+                console.log(column1, column2);
+
+                Highcharts.chart('container', {
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: null,
+                        plotShadow: false,
+                        type: 'pie'
+                    },
+                    title: {
+                        text: 'Percentage of all students that passed or failed year',
+                        align: 'left'
+                    },
+                    tooltip: {
+                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                    },
+                    accessibility: {
+                        point: {
+                            valueSuffix: '%'
+                        }
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: false
+                            },
+                            showInLegend: true
+                        }
+                    },
+                    series: [{
+                        name: 'Brands',
+                        colorByPoint: true,
+                        data: [{
+                            name: 'Passed',
+                            y: column1,
+                            sliced: true,
+                            selected: true
+                        }, {
+                            name: 'Failed',
+                            y: column2
+                        }]
+                    }]
+                });
+            }
+        })
+    })
+
+
+</script>
+
+
+

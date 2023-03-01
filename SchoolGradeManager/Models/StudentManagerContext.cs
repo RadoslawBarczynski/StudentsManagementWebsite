@@ -10,5 +10,6 @@ namespace SchoolGradeManager.Models
 
         public DbSet<Student> students { get; set; }
         public DbSet<Grade> grades { get; set; }
+        public DbSet<Account> accounts { get; set; }
     }
 }

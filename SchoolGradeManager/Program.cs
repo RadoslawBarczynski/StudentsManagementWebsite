@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using SchoolGradeManager.Models;
 using SchoolGradeManager.Repositories;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<StudentManagerContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("StudentManagerDatabase")));
+
+/*builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+{
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+    options.AccessDeniedPath = "/Forbidden/";
+});*/
 
 //dependecny injection
 builder.Services.AddTransient<IStudentRepository, StudentRepository>();
@@ -28,6 +35,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+//app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

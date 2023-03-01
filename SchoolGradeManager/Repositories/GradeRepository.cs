@@ -9,14 +9,6 @@ namespace SchoolGradeManager.Repositories
     {
         private readonly StudentManagerContext _context;
 
-        Dictionary<string, int> gradeDegreeDictionary = new Dictionary<string, int>()
-        {
-            {"A", 5},
-            {"B", 4},
-            {"C", 3},
-            {"D", 2},
-            {"E", 1}
-        };
         public GradeRepository(StudentManagerContext context)
         {
             _context = context;
@@ -47,12 +39,7 @@ namespace SchoolGradeManager.Repositories
             var result = _context.grades.FirstOrDefault(x => x.GradeId == id);
             if(result != null)
             {
-                result.G_Math = grade.G_Math;
-                result.G_English = grade.G_English;
-                result.G_Biology = grade.G_Biology;
-                result.G_History = grade.G_History;
-                result.G_Geography = grade.G_Geography;
-                result.G_PE = grade.G_PE;
+                result.G_Score = grade.G_Score;
 
                 _context.SaveChanges();
             }

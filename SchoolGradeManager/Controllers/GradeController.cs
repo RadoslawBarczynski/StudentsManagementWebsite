@@ -24,6 +24,11 @@ namespace SchoolGradeManager.Controllers
             return View(_gradeRepository.GetAllActive());
         }
 
+        public ActionResult Details()
+        {
+            return View();
+        }
+
         // GET: StudentController/Delete/5
         public ActionResult Delete(int id)
         {
@@ -60,12 +65,11 @@ namespace SchoolGradeManager.Controllers
         {
             try
             {
-                string[] DashboardCount = new string[3];
+                string[] DashboardCount = new string[2];
                 SqlConnection con = new SqlConnection("Server=(localdb)\\MSSQLLocalDB;Database=StudentManagementDB;Trusted_Connection=True;MultipleActiveResultSets=true;");
                 con.Open();
-                //SqlCommand cmd = new SqlCommand("select count(Math) as MathB,(select count(Math) from Grade where Math = 'A') as MathA from Grade where Math = 'B'");
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "select Sum(case when Math = 'A' then 1 else 0 END +\r\n\t\t\tcase when English = 'A' then 1 else 0 END +\r\n\t\t\tcase when Biology = 'A' then 1 else 0 END +\r\n\t\t\tcase when History = 'A' then 1 else 0 END +\r\n\t\t\tcase when Geography = 'A' then 1 else 0 END +\r\n\t\t\tcase when PE = 'A' then 1 else 0 END) as A from Grade\r\n\t\t\tUNION\r\n\t\t\tselect Sum(case when Math = 'B' then 1 else 0 END +\r\n\t\t\tcase when English = 'B' then 1 else 0 END +\r\n\t\t\tcase when Biology = 'B' then 1 else 0 END +\r\n\t\t\tcase when History = 'B' then 1 else 0 END +\r\n\t\t\tcase when Geography = 'B' then 1 else 0 END +\r\n\t\t\tcase when PE = 'B' then 1 else 0 END) as B from Grade\r\n\t\t\tUNION\r\n\t\t\tselect Sum(case when Math = 'C' then 1 else 0 END +\r\n\t\t\tcase when English = 'C' then 1 else 0 END +\r\n\t\t\tcase when Biology = 'C' then 1 else 0 END +\r\n\t\t\tcase when History = 'C' then 1 else 0 END +\r\n\t\t\tcase when Geography = 'C' then 1 else 0 END +\r\n\t\t\tcase when PE = 'C' then 1 else 0 END) as C from Grade";
+                cmd.CommandText = "select count(Score) as failed, (select count(Score) from Grade where Score > 45) as passed from Grade where Score < 46 ";
                 cmd.CommandTimeout = 15;
                 cmd.CommandType = CommandType.Text;
                 DataTable dt = new DataTable();
@@ -75,13 +79,11 @@ namespace SchoolGradeManager.Controllers
                 {
                     DashboardCount[0] = "0";
                     DashboardCount[1] = "0";
-                    DashboardCount[2] = "0";
                 }
                 else
                 {
-                    DashboardCount[0] = dt.Rows[0]["A"].ToString();
-                    DashboardCount[1] = dt.Rows[1]["A"].ToString();
-                    DashboardCount[2] = dt.Rows[2]["A"].ToString();
+                    DashboardCount[0] = dt.Rows[0]["passed"].ToString();
+                    DashboardCount[1] = dt.Rows[0]["failed"].ToString();
                     Console.WriteLine(DashboardCount[0]);
                     Console.WriteLine(DashboardCount[1]);
                 }
