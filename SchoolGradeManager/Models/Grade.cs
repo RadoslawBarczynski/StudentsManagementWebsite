@@ -8,7 +8,7 @@ namespace SchoolGradeManager.Models
     {
         [Key]
         [ForeignKey("Student")]
-        public int GradeId { get; set; }
+        public Guid GradeId { get; set; }
 
         [Column("Score")]
         public int G_Score { get; set; }

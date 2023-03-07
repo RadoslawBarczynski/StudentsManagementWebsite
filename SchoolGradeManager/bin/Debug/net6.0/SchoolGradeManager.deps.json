@@ -10,7 +10,9 @@
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "7.0.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.12"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.12",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3",
+          "supabase-csharp": "0.8.4"
         },
         "runtime": {
           "SchoolGradeManager.dll": {}
@@ -47,6 +49,30 @@
           "lib/netstandard2.0/Azure.Identity.dll": {
             "assemblyVersion": "1.6.0.0",
             "fileVersion": "1.600.22.20503"
+          }
+        }
+      },
+      "functions-csharp/1.2.1": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.2",
+          "supabase-core": "0.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Functions.dll": {
+            "assemblyVersion": "1.2.1.0",
+            "fileVersion": "1.2.1.0"
+          }
+        }
+      },
+      "gotrue-csharp/3.0.5": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.2",
+          "supabase-core": "0.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Gotrue.dll": {
+            "assemblyVersion": "3.0.5.0",
+            "fileVersion": "3.0.5.0"
           }
         }
       },
@@ -902,7 +928,7 @@
           "Microsoft.CodeAnalysis.VisualBasic.Features": "4.0.0",
           "Microsoft.CodeAnalysis.VisualBasic.Workspaces": "4.0.0",
           "Microsoft.CodeAnalysis.Workspaces.MSBuild": "4.0.0",
-          "Newtonsoft.Json": "13.0.1",
+          "Newtonsoft.Json": "13.0.2",
           "NuGet.Packaging": "6.3.1",
           "NuGet.ProjectModel": "6.3.1",
           "System.Collections.Immutable": "6.0.0",
@@ -1213,7 +1239,7 @@
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "7.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Templating": "6.0.12",
-          "Newtonsoft.Json": "13.0.1",
+          "Newtonsoft.Json": "13.0.2",
           "NuGet.Packaging": "6.3.1",
           "System.Configuration.ConfigurationManager": "6.0.0",
           "System.Private.Uri": "4.3.2",
@@ -1281,7 +1307,7 @@
           "Microsoft.Build": "17.3.2",
           "Microsoft.CodeAnalysis.CSharp.Workspaces": "4.0.0",
           "Microsoft.DotNet.Scaffolding.Shared": "6.0.12",
-          "Newtonsoft.Json": "13.0.1",
+          "Newtonsoft.Json": "13.0.2",
           "NuGet.Packaging": "6.3.1",
           "System.Configuration.ConfigurationManager": "6.0.0",
           "System.Private.Uri": "4.3.2",
@@ -1339,6 +1365,14 @@
           }
         }
       },
+      "MimeMapping/1.0.1.37": {
+        "runtime": {
+          "lib/netstandard2.1/MimeMapping.dll": {
+            "assemblyVersion": "1.0.1.37",
+            "fileVersion": "1.0.1.37"
+          }
+        }
+      },
       "NETStandard.Library/1.6.1": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.1",
@@ -1387,11 +1421,37 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Newtonsoft.Json/13.0.1": {
+      "Newtonsoft.Json/13.0.2": {
         "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
             "assemblyVersion": "13.0.0.0",
-            "fileVersion": "13.0.1.25517"
+            "fileVersion": "13.0.2.27524"
+          }
+        }
+      },
+      "Npgsql/7.0.2": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "7.0.0",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Npgsql.dll": {
+            "assemblyVersion": "7.0.2.0",
+            "fileVersion": "7.0.2.0"
+          }
+        }
+      },
+      "Npgsql.EntityFrameworkCore.PostgreSQL/7.0.3": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.3",
+          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.3",
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.3",
+          "Npgsql": "7.0.2"
+        },
+        "runtime": {
+          "lib/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
+            "assemblyVersion": "7.0.3.0",
+            "fileVersion": "7.0.3.0"
           }
         }
       },
@@ -1453,7 +1513,7 @@
       },
       "NuGet.Packaging/6.3.1": {
         "dependencies": {
-          "Newtonsoft.Json": "13.0.1",
+          "Newtonsoft.Json": "13.0.2",
           "NuGet.Configuration": "6.3.1",
           "NuGet.Versioning": "6.3.1",
           "System.Security.Cryptography.Cng": "5.0.0",
@@ -1493,6 +1553,33 @@
           "lib/netstandard2.0/NuGet.Versioning.dll": {
             "assemblyVersion": "6.3.1.1",
             "fileVersion": "6.3.1.1"
+          }
+        }
+      },
+      "postgrest-csharp/3.1.3": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.2",
+          "System.Linq.Expressions": "4.3.0",
+          "supabase-core": "0.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Postgrest.dll": {
+            "assemblyVersion": "3.1.3.0",
+            "fileVersion": "3.1.3.0"
+          }
+        }
+      },
+      "realtime-csharp/5.0.2": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.2",
+          "Websocket.Client": "4.6.1",
+          "postgrest-csharp": "3.1.3",
+          "supabase-core": "0.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Realtime.dll": {
+            "assemblyVersion": "5.0.2.0",
+            "fileVersion": "5.0.2.0"
           }
         }
       },
@@ -1544,6 +1631,44 @@
       "runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
+      "supabase-core/0.0.2": {
+        "runtime": {
+          "lib/netstandard2.0/Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "supabase-csharp/0.8.4": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.2",
+          "functions-csharp": "1.2.1",
+          "gotrue-csharp": "3.0.5",
+          "postgrest-csharp": "3.1.3",
+          "realtime-csharp": "5.0.2",
+          "supabase-core": "0.0.2",
+          "supabase-storage-csharp": "1.2.7"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Supabase.dll": {
+            "assemblyVersion": "0.8.4.0",
+            "fileVersion": "0.8.4.0"
+          }
+        }
+      },
+      "supabase-storage-csharp/1.2.7": {
+        "dependencies": {
+          "MimeMapping": "1.0.1.37",
+          "Newtonsoft.Json": "13.0.2",
+          "supabase-core": "0.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Storage.dll": {
+            "assemblyVersion": "1.2.7.0",
+            "fileVersion": "1.2.7.0"
+          }
+        }
+      },
       "System.AppContext/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0"
@@ -1956,6 +2081,14 @@
           "Microsoft.NETCore.Targets": "1.1.3"
         }
       },
+      "System.Reactive/5.0.0": {
+        "runtime": {
+          "lib/net5.0/System.Reactive.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.0.1"
+          }
+        }
+      },
       "System.Reflection/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.1",
@@ -2281,6 +2414,7 @@
           "System.Threading.Tasks": "4.3.0"
         }
       },
+      "System.Threading.Channels/5.0.0": {},
       "System.Threading.Tasks/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.1",
@@ -2350,6 +2484,18 @@
           "System.Threading": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0"
         }
+      },
+      "Websocket.Client/4.6.1": {
+        "dependencies": {
+          "System.Reactive": "5.0.0",
+          "System.Threading.Channels": "5.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Websocket.Client.dll": {
+            "assemblyVersion": "4.6.1.0",
+            "fileVersion": "4.6.1.0"
+          }
+        }
       }
     }
   },
@@ -2372,6 +2518,20 @@
       "sha512": "sha512-EycyMsb6rD2PK9P0SyibFfEhvWWttdrYhyPF4f41uzdB/44yQlV+2Wehxyg489Rj6gbPvSPgbKq0xsHJBhipZA==",
       "path": "azure.identity/1.6.0",
       "hashPath": "azure.identity.1.6.0.nupkg.sha512"
+    },
+    "functions-csharp/1.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gLdmNzld5Y/BQeZTecCZD8QLcWpAAy0dkqHdbt9iHkn4V8Fs+l2IT5z1KfRjpwOMw3jH69xhzsZ11x0TyCQRmg==",
+      "path": "functions-csharp/1.2.1",
+      "hashPath": "functions-csharp.1.2.1.nupkg.sha512"
+    },
+    "gotrue-csharp/3.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WAuPir8z0zJyBV/d2tjqWjQUz1ox/6lkoQJMkPQuSQOMeP7Hvg9mFDUaO0vc/L9Q1dVEcFWad2bLCKv3xRnKBg==",
+      "path": "gotrue-csharp/3.0.5",
+      "hashPath": "gotrue-csharp.3.0.5.nupkg.sha512"
     },
     "Humanizer.Core/2.2.0": {
       "type": "package",
@@ -2828,6 +2988,13 @@
       "path": "microsoft.win32.systemevents/6.0.0",
       "hashPath": "microsoft.win32.systemevents.6.0.0.nupkg.sha512"
     },
+    "MimeMapping/1.0.1.37": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KyvZaEsIOlrbs3+uyqylnDy3QepY0iyVHEsYpefs7OGCBCfWnW7XuQ55hATazdkcav50GbX26TmhBO4lC05pjQ==",
+      "path": "mimemapping/1.0.1.37",
+      "hashPath": "mimemapping.1.0.1.37.nupkg.sha512"
+    },
     "NETStandard.Library/1.6.1": {
       "type": "package",
       "serviceable": true,
@@ -2835,12 +3002,26 @@
       "path": "netstandard.library/1.6.1",
       "hashPath": "netstandard.library.1.6.1.nupkg.sha512"
     },
-    "Newtonsoft.Json/13.0.1": {
+    "Newtonsoft.Json/13.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
-      "path": "newtonsoft.json/13.0.1",
-      "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
+      "sha512": "sha512-R2pZ3B0UjeyHShm9vG+Tu0EBb2lC8b0dFzV9gVn50ofHXh9Smjk6kTn7A/FdAsC8B5cKib1OnGYOXxRBz5XQDg==",
+      "path": "newtonsoft.json/13.0.2",
+      "hashPath": "newtonsoft.json.13.0.2.nupkg.sha512"
+    },
+    "Npgsql/7.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/k12hfmg4PI0IU2UTLN6n0s/FKUfox8+RdWtzgADYZoyks7GH82WLyXm27eeqatsi/nmiK9lO3HyULlTD87szg==",
+      "path": "npgsql/7.0.2",
+      "hashPath": "npgsql.7.0.2.nupkg.sha512"
+    },
+    "Npgsql.EntityFrameworkCore.PostgreSQL/7.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3iVz7vcPAZt6iBSjJ8XyjtIP19jilNOJqTiTCs2UHWhpTyP+FbNhnzCBE/oyD3n49McmmenjKpva+yTy7q1z/g==",
+      "path": "npgsql.entityframeworkcore.postgresql/7.0.3",
+      "hashPath": "npgsql.entityframeworkcore.postgresql.7.0.3.nupkg.sha512"
     },
     "NuGet.Common/6.3.1": {
       "type": "package",
@@ -2904,6 +3085,20 @@
       "sha512": "sha512-T/igBDLXCd+pH3YTWgGVNvYSOwbwaT30NyyM9ONjvlHlmaUjKBJpr9kH0AeL+Ado4EJsBhU3qxXVc6lyrpRcMw==",
       "path": "nuget.versioning/6.3.1",
       "hashPath": "nuget.versioning.6.3.1.nupkg.sha512"
+    },
+    "postgrest-csharp/3.1.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-sjRoJlDtox7DgoV+gr5buM80QT9HRkoeqZ4p6CMMomxpVwjnqvOt2X2acgnuU5qwmrOULJfRNsEGRbRZ957n7Q==",
+      "path": "postgrest-csharp/3.1.3",
+      "hashPath": "postgrest-csharp.3.1.3.nupkg.sha512"
+    },
+    "realtime-csharp/5.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZkUhi4J8WkXENJRQq4LC44VMR+1kMxX20Mhv/iFcgK1avNMCZmjdfZBdkfcHaEla8AiPAcMn8xBUJ/sqsi8IhA==",
+      "path": "realtime-csharp/5.0.2",
+      "hashPath": "realtime-csharp.5.0.2.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
@@ -3016,6 +3211,27 @@
       "sha512": "sha512-VB5cn/7OzUfzdnC8tqAIMQciVLiq2epm2NrAm1E9OjNRyG4lVhfR61SMcLizejzQP8R8Uf/0l5qOIbUEi+RdEg==",
       "path": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "hashPath": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512"
+    },
+    "supabase-core/0.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-a8qJNBi1eYq1pTAov6Nut71ZO3PaZR1rhxsVrWAW74kdzGUFeBa6vC5mZgE8xBsN0qR/dLA4jDTA/Y2QNh5MVw==",
+      "path": "supabase-core/0.0.2",
+      "hashPath": "supabase-core.0.0.2.nupkg.sha512"
+    },
+    "supabase-csharp/0.8.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/CIUcjAV1mr2w4rf9xmAJJZJzMd5ZDMjy2wponzlG6xR4Q2eHb9WA+FfjMWqeY/L8XOYqZBKbrK2Q2LWm6s67Q==",
+      "path": "supabase-csharp/0.8.4",
+      "hashPath": "supabase-csharp.0.8.4.nupkg.sha512"
+    },
+    "supabase-storage-csharp/1.2.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3PSH9azvvKbldBC3N8eDwGzY4wmKVgwHVU8TpaK8zJeVp84HcNDxhtw4jhdDbh3rAkylFJ4Gw2+D6oJzYaktuw==",
+      "path": "supabase-storage-csharp/1.2.7",
+      "hashPath": "supabase-storage-csharp.1.2.7.nupkg.sha512"
     },
     "System.AppContext/4.3.0": {
       "type": "package",
@@ -3290,6 +3506,13 @@
       "path": "system.private.uri/4.3.2",
       "hashPath": "system.private.uri.4.3.2.nupkg.sha512"
     },
+    "System.Reactive/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-erBZjkQHWL9jpasCE/0qKAryzVBJFxGHVBAvgRN1bzM0q2s1S4oYREEEL0Vb+1kA/6BKb5FjUZMp5VXmy+gzkQ==",
+      "path": "system.reactive/5.0.0",
+      "hashPath": "system.reactive.5.0.0.nupkg.sha512"
+    },
     "System.Reflection/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -3549,6 +3772,13 @@
       "path": "system.threading/4.3.0",
       "hashPath": "system.threading.4.3.0.nupkg.sha512"
     },
+    "System.Threading.Channels/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RLBIxntLaG9pRmmuVDwY1kc8Bvp/FQzSxPU+19VekkScKkWtVP9r8bLhm28ama3usc816UBrmkg3vv3jUea/hw==",
+      "path": "system.threading.channels/5.0.0",
+      "hashPath": "system.threading.channels.5.0.0.nupkg.sha512"
+    },
     "System.Threading.Tasks/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -3597,6 +3827,13 @@
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ==",
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
+    },
+    "Websocket.Client/4.6.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6ccH+gNepmlQILnp8L+9J3PvN8Nk9qmdWWhb7aBZC8TvhisgK/JMq6H1evtzRJ3MRM/FWjumP6J/HPEt+DXwuQ==",
+      "path": "websocket.client/4.6.1",
+      "hashPath": "websocket.client.4.6.1.nupkg.sha512"
     }
   }
 }

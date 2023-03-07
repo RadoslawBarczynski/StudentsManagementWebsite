@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using SchoolGradeManager.Models;
 using System.Data;
 
@@ -11,22 +12,18 @@ namespace SchoolGradeManager.Repositories
 
         public GradeRepository(StudentManagerContext context)
         {
-            _context = context;
-            foreach (Grade grade in _context.grades)
-            {
-                grade.student = _context.students.SingleOrDefault(z => z.GradeId == grade.GradeId);
-            }            
+            _context = context;           
         }
 
-        public Grade Get(int id) => _context.grades.FirstOrDefault(x => x.GradeId == id);
+        public Grade Get(Guid id) => _context.grades.FirstOrDefault(x => x.GradeId.Equals(id));
 
 
-        public IQueryable<Grade> GetAllActive() => _context.grades;
+        public IQueryable<Grade> GetAllActive() => _context.grades.Include("student");
 
 
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
-            var result = _context.grades.SingleOrDefault(x => x.GradeId == id);
+            var result = _context.grades.SingleOrDefault(x => x.GradeId.Equals(id));
             if (result != null)
             {
                 _context.grades.Remove(result);
@@ -34,9 +31,9 @@ namespace SchoolGradeManager.Repositories
             }
         }
 
-        public void Update(int id, Grade grade)
+        public void Update(Guid id, Grade grade)
         {
-            var result = _context.grades.FirstOrDefault(x => x.GradeId == id);
+            var result = _context.grades.FirstOrDefault(x => x.GradeId.Equals(id));
             if(result != null)
             {
                 result.G_Score = grade.G_Score;

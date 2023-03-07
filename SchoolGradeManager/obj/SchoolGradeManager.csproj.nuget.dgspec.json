@@ -56,6 +56,14 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[6.0.12, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "supabase-csharp": {
+              "target": "Package",
+              "version": "[0.8.4, )"
             }
           },
           "imports": [

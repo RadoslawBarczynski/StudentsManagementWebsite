@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<StudentManagerContext>(options =>
-        options.UseSqlServer(builder.Configuration.GetConnectionString("StudentManagerDatabase")));
+        options.UseNpgsql(builder.Configuration.GetConnectionString("StudentManagerDatabase")));
 
 /*builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
 {

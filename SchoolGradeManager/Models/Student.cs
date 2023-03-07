@@ -9,7 +9,7 @@ namespace SchoolGradeManager.Models
     public class Student
     {
         [Key]
-        public int Id { get; set; }
+        public Guid id { get; set; }
 
         [DisplayName("First Name")]
         [Required(ErrorMessage = "Instert Name of the student")]
@@ -19,13 +19,19 @@ namespace SchoolGradeManager.Models
         [Required(ErrorMessage = "Instert Last Name of the student")]
         public string StudentLastName { get; set; }
 
-        [DisplayName("Email")]
+        [DisplayName("Login")]
+        [Column("Login")]
         [Required(ErrorMessage = "Instert Email of the student")]
-        public string StudentEmail { get; set; }
+        public string StudentLogin { get; set; }
 
-        [ForeignKey("Grade")]
-        public int GradeId { get; set; }
-        public Grade grade { get; set; }
+        [DisplayName("Password")]
+        [Column("Password")]
+        [Required(ErrorMessage = "Instert Email of the student")]
+        public string StudentPassword { get; set; }
+
+
+        public Guid? GradeId { get; set; }
+        public virtual Grade grade { get; set; }
 
     }
 }

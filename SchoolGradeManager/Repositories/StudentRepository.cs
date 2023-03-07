@@ -9,37 +9,39 @@ namespace SchoolGradeManager.Repositories
         public StudentRepository(StudentManagerContext context)
         {
             _context = context;
-            foreach (Student student in _context.students)
-            {
-                student.grade = _context.grades.SingleOrDefault(z => z.GradeId == student.GradeId);
-            }
         }
-        public Student Get(int id)
+        public Student Get(Guid id)
         {
-            Student student = _context.students.SingleOrDefault(x => x.Id == id);
-            student.grade = _context.grades.SingleOrDefault(y => y.GradeId == student.GradeId);
+            Student student = _context.students.SingleOrDefault(x => x.id.Equals(id));
+            //student.grade = _context.grades.SingleOrDefault(y => y.GradeId.Equals(student.GradeId));
             return student;
         }
 
 
-        public IQueryable<Student> GetAllActive() => _context.students;
+        public IQueryable<Student> GetAllActive() => _context.students.Include("grade");
 
 
         public void Add(Student student)
         {
+            Guid myuuid = Guid.NewGuid();
+            student.id = myuuid;
             _context.students.Add(student);
             //basic grade template
             Grade grade = new Grade();
+            Guid myuuid2 = Guid.NewGuid();
+            Console.WriteLine(myuuid2.ToString() + myuuid.ToString());
             grade.G_Score = 0;
             grade.student = student;
-            student.GradeId = grade.GradeId;
+            grade.GradeId = myuuid2;
 
             _context.grades.Add(grade);
             _context.SaveChanges();
+            student.GradeId = grade.GradeId;
+            _context.SaveChanges();
         }
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
-            var result = _context.students.SingleOrDefault(x => x.Id == id);
+            var result = _context.students.SingleOrDefault(x => x.id.Equals(id));
             if(result != null)
             {
                 _context.grades.Remove(result.grade);
@@ -48,14 +50,15 @@ namespace SchoolGradeManager.Repositories
             }
         }
 
-        public void Update(int id, Student student)
+        public void Update(Guid id, Student student)
         {
-            var result = _context.students.SingleOrDefault(x => x.Id == id);
+            var result = _context.students.SingleOrDefault(x => x.id.Equals(id));
             if(result != null)
             {
                 result.StudentFirstName = student.StudentFirstName;
                 result.StudentLastName = student.StudentLastName;
-                result.StudentEmail = student.StudentEmail;
+                result.StudentLogin = student.StudentLogin;
+                result.StudentPassword = student.StudentPassword;
 
                 _context.SaveChanges();
             }

@@ -4,10 +4,10 @@ namespace SchoolGradeManager.Repositories
 {
     public interface IStudentRepository
     {
-        Student Get(int id);
+        Student Get(Guid id);
         IQueryable<Student> GetAllActive();
         void Add(Student student);
-        void Update(int id, Student student);
-        void Delete(int id);
+        void Update(Guid id, Student student);
+        void Delete(Guid id);
     }
 }

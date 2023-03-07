@@ -5,7 +5,7 @@ using SchoolGradeManager.Models;
 using SchoolGradeManager.Repositories;
 using System.Data;
 using Microsoft.Extensions.Configuration;
-
+using Npgsql;
 
 namespace SchoolGradeManager.Controllers
 {
@@ -30,7 +30,7 @@ namespace SchoolGradeManager.Controllers
         }
 
         // GET: StudentController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
             return View(_gradeRepository.Get(id));
         }
@@ -38,7 +38,7 @@ namespace SchoolGradeManager.Controllers
         // POST: StudentController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, Grade grade)
+        public ActionResult Delete(Guid id, Grade grade)
         {
             _gradeRepository.Delete(id);
 
@@ -46,7 +46,7 @@ namespace SchoolGradeManager.Controllers
         }
 
         // GET: GradeController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
             return View(_gradeRepository.Get(id));
         }
@@ -54,7 +54,7 @@ namespace SchoolGradeManager.Controllers
         // POST: GradeController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, Grade grade)
+        public ActionResult Edit(Guid id, Grade grade)
         {
             _gradeRepository.Update(id, grade);
 
@@ -66,14 +66,14 @@ namespace SchoolGradeManager.Controllers
             try
             {
                 string[] DashboardCount = new string[2];
-                SqlConnection con = new SqlConnection("Server=(localdb)\\MSSQLLocalDB;Database=StudentManagementDB;Trusted_Connection=True;MultipleActiveResultSets=true;");
+                NpgsqlConnection con = new NpgsqlConnection("Host=db.melfibfnkmadpskpvist.supabase.co;Database=postgres;Username=postgres;Password=PI3!44EL!!!");
                 con.Open();
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "select count(Score) as failed, (select count(Score) from Grade where Score > 45) as passed from Grade where Score < 46 ";
+                NpgsqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "select count(\"Score\") as failed, (select count(\"Score\") from \"Grade\" where \"Score\" > 45) as passed from \"Grade\" where \"Score\" < 46 ";
                 cmd.CommandTimeout = 15;
                 cmd.CommandType = CommandType.Text;
                 DataTable dt = new DataTable();
-                SqlDataAdapter cmd1 = new SqlDataAdapter(cmd);
+                NpgsqlDataAdapter cmd1 = new NpgsqlDataAdapter(cmd);
                 cmd1.Fill(dt);
                 if (dt.Rows.Count == 0)
                 {

@@ -24,7 +24,7 @@ namespace SchoolGradeManager.Controllers
         }
 
         // GET: StudentController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(Guid id)
         {
             return View(_studentRepository.Get(id));
         }
@@ -46,7 +46,7 @@ namespace SchoolGradeManager.Controllers
         }
 
         // GET: StudentController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
             return View(_studentRepository.Get(id));
         }
@@ -54,7 +54,7 @@ namespace SchoolGradeManager.Controllers
         // POST: StudentController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, Student student)
+        public ActionResult Edit(Guid id, Student student)
         {
             _studentRepository.Update(id, student);
 
@@ -62,7 +62,7 @@ namespace SchoolGradeManager.Controllers
         }
 
         // GET: StudentController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
             return View(_studentRepository.Get(id));
         }
@@ -70,7 +70,7 @@ namespace SchoolGradeManager.Controllers
         // POST: StudentController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, Student student)
+        public ActionResult Delete(Guid id, Student student)
         {
             _studentRepository.Delete(id);
 
