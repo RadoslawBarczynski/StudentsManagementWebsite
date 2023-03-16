@@ -1,0 +1,53 @@
+﻿@model IEnumerable<SchoolGradeManager.Models.Question>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="h2" style="text-align: center">Questions</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Create New Question</a>
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.operation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.answer1)
+            </th>                                   
+            <th>                                    
+                @Html.DisplayNameFor(model => model.answer2)
+            </th>                                   
+            <th>                                    
+                @Html.DisplayNameFor(model => model.answer3)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.operation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.answer1)
+            </td>                                  
+            <td>                                   
+                @Html.DisplayFor(modelItem => item.answer2)
+            </td>                                  
+            <td>                                   
+                @Html.DisplayFor(modelItem => item.answer3)
+            </td>
+            <td>
+                    @Html.ActionLink("Edit", "Edit", new {  id=item.id  }, new {@class = "btn btn-primary"}) 
+                    @Html.ActionLink("Details", "Details", new {  id=item.id  }, new {@class = "btn btn-secondary"}) 
+                    @Html.ActionLink("Delete", "Delete", new {  id=item.id  }, new {@class = "btn btn-danger"})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
