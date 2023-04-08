@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using SchoolGradeManager.Models;
 using SchoolGradeManager.Repositories;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using SchoolTestManager.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,8 @@ builder.Services.AddDbContext<StudentManagerContext>(options =>
 builder.Services.AddTransient<IStudentRepository, StudentRepository>();
 builder.Services.AddTransient<IGradeRepository, GradeRepository>();
 builder.Services.AddTransient<IQuestionRepository, QuestionRepository>();
+builder.Services.AddTransient<ITestRepository, TestRepository>();
+builder.Services.AddTransient<ITestQuestionRepository, TestQuestionRepository>();
 
 var app = builder.Build();
 

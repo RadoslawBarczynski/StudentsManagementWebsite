@@ -25,5 +25,8 @@ namespace SchoolGradeManager.Models
         [DisplayName("Incorrect answer 2")]
         [Required(ErrorMessage = "Instert incorrect answer")]
         public double answer3 { get; set; }
+
+        public virtual List<TestQuestion> TestQuestions { get; set; }
+
     }
 }
