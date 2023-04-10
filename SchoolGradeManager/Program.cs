@@ -7,6 +7,7 @@ using SchoolTestManager.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddSession();
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<StudentManagerContext>(options =>
         options.UseNpgsql(builder.Configuration.GetConnectionString("StudentManagerDatabase")));
@@ -38,12 +39,14 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseSession();
 
 //app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Student}/{action=Index}/{id?}");
+    //pattern: "{controller=Student}/{action=Index}/{id?}");
+    pattern: "{controller=Login}/{action=Index}/{id?}");
 
 app.Run();

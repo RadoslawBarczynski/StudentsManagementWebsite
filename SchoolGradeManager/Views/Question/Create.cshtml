@@ -14,12 +14,12 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="operation" class="control-label"></label>
-                <input asp-for="operation" class="form-control" />
+                <input asp-for="operation" id="operationId" class="form-control" onchange="calculate_result()" />
                 <span asp-validation-for="operation" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="answer1" class="control-label"></label>
-                <input asp-for="answer1" class="form-control" />
+                <input asp-for="answer1" id="answer1Id" class="form-control" readonly />
                 <span asp-validation-for="answer1" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -36,6 +36,15 @@
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
+        <script>
+            function calculate_result()
+            {
+                var operationValue = document.getElementById("operationId").value;
+
+                var result = eval(operationValue);
+                document.getElementById("answer1Id").value = result;
+            }
+        </script>
     </div>
 </div>
 

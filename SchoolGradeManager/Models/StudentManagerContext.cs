@@ -31,6 +31,7 @@ namespace SchoolGradeManager.Models
         public DbSet<Grade> grades { get; set; }
         public DbSet<Question> questions { get; set; }
         public DbSet<Test> tests { get; set; }
+        public DbSet<UserLogin> userLogins { get; set; }    
 
         public DbSet<TestQuestion> TestQuestions { get; set; }  
 
