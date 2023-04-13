@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "i/BmQ01lIsH4DObaZoIdmbob83+cRlQJpFWykOQoaqk=",
+  "Hash": "oQZvJqRVPJ584/CiDJ9e0ynaCqIi/DI/mxxZOl0ZAIk=",
   "Source": "SchoolGradeManager",
   "BasePath": "_content/SchoolGradeManager",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\VSProjects\\StudentManagementDatabase\\StudentsManagementWebsite\\SchoolGradeManager\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\SchoolGradeManager.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\VSProjects\\StudentManagementDatabase\\StudentsManagementWebsite\\SchoolGradeManager\\wwwroot\\css\\loginStyle.css",
+      "SourceId": "SchoolGradeManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\VSProjects\\StudentManagementDatabase\\StudentsManagementWebsite\\SchoolGradeManager\\wwwroot\\",
+      "BasePath": "_content/SchoolGradeManager",
+      "RelativePath": "css/loginStyle.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\loginStyle.css"
     },
     {
       "Identity": "D:\\VSProjects\\StudentManagementDatabase\\StudentsManagementWebsite\\SchoolGradeManager\\wwwroot\\css\\Sidebar.css",

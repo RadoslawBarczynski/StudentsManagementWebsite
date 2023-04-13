@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\Sidebar.css"
     },
     {
+      "Id": "D:\\VSProjects\\StudentManagementDatabase\\StudentsManagementWebsite\\SchoolGradeManager\\wwwroot\\css\\loginStyle.css",
+      "PackagePath": "staticwebassets\\css\\loginStyle.css"
+    },
+    {
       "Id": "D:\\VSProjects\\StudentManagementDatabase\\StudentsManagementWebsite\\SchoolGradeManager\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

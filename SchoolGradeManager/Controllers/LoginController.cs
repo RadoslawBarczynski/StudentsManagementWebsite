@@ -22,7 +22,7 @@ namespace SchoolGradeManager.Controllers
             }
             else
             {
-                ViewBag.error = "Invalid Account";
+                ViewBag.error = "Niepoprawne dane";
                 return View("Index");
             }
         }
