@@ -23,13 +23,23 @@ namespace SchoolGradeManager.Controllers
         // GET: QuestionController/Details/5
         public ActionResult Details(Guid id)
         {
-            return View(_testRepository.Get(id));
+            return View(_testRepository.ShowQuestions(id));
         }
 
         // GET: QuestionController/Create
         public ActionResult Create()
         {
             return View(new Test());
+        }
+
+        // POST: StudentController/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Test test)
+        {
+            _testRepository.Add(test);
+
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: StudentController/Delete/5
@@ -46,6 +56,19 @@ namespace SchoolGradeManager.Controllers
             _testRepository.Delete(id);
 
             return RedirectToAction(nameof(Index));
+        }
+
+        public ActionResult AddQuestions(Guid id)
+        {
+            return View(_testRepository.AddQuestions(id));
+        }
+
+        [HttpPost]
+        public ActionResult AddQuestions(Guid id, List<Guid> Questions)
+        {
+            _testRepository.UpdateQuestions(id, Questions);
+
+            return RedirectToAction("Index");
         }
 
         // GET: GradeController/Edit/5

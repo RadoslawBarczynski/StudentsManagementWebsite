@@ -13,7 +13,7 @@
 <figure class="highcharts-figure">
     <div id="container"></div>
     <p class="highcharts-description">
-        Pie chart that presents Grades from all students in database
+        Wykres kołowy prezentujący ilość studentów, którzy osiągneli próg punktowy zaliczenia
     </p>
 </figure>
 <script>
@@ -39,7 +39,7 @@
                         type: 'pie'
                     },
                     title: {
-                        text: 'Percentage of all students that passed or failed year',
+                        text: 'Procentowe przedstawienie wszystkich studentów',
                         align: 'left'
                     },
                     tooltip: {
@@ -64,12 +64,12 @@
                         name: 'Brands',
                         colorByPoint: true,
                         data: [{
-                            name: 'Passed',
+                            name: 'Zaliczony',
                             y: column1,
                             sliced: true,
                             selected: true
                         }, {
-                            name: 'Failed',
+                            name: 'Niezaliczony',
                             y: column2
                         }]
                     }]

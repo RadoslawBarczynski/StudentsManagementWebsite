@@ -13,5 +13,6 @@ namespace SchoolGradeManager.Models
         public Test test { get; set; }  
         public Guid QuestionId { get; set; }
         public Question question { get; set; }  
+
     }
 }

@@ -88,6 +88,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFF1ZXN0aW9uXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Test/AddQuestions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxBZGRRdWVzdGlvbnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Test/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

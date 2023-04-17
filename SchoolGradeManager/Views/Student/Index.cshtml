@@ -4,22 +4,22 @@
     ViewData["Title"] = "Index";
 }
 
-<h1 class="h2" style="text-align: center">Table of active students</h1>
+<h1 class="h2" style="text-align: center">Tabela studentów</h1>
 
 <p>
-    <a class="btn btn-primary" asp-action="Create">Create New Student</a>
+    <a class="btn btn-primary" asp-action="Create">Utwórz nowego studenta</a>
 </p>
-<table class="table table-hover">
+<table class="table table-striped table-dark">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.StudentFirstName)
+                Imię ucznia
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.StudentLastName)
+                Nazwisko ucznia
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.grade.G_Score)
+                Ilość punktów
             </th>
             <th></th>
         </tr>
@@ -37,9 +37,9 @@
                 @Html.DisplayFor(modelItem => item.grade.G_Score)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new {  id=item.id  }, new {@class = "btn btn-primary"}) 
-                @Html.ActionLink("Details", "Details", new {  id=item.id  }, new {@class = "btn btn-secondary"}) 
-                @Html.ActionLink("Delete", "Delete", new {  id=item.id  }, new {@class = "btn btn-danger"})
+                @Html.ActionLink("Edytuj", "Edit", new {  id=item.id  }, new {@class = "btn btn-primary"}) 
+                @Html.ActionLink("Szczegóły", "Details", new {  id=item.id  }, new {@class = "btn btn-secondary"}) 
+                @Html.ActionLink("Usuń", "Delete", new {  id=item.id  }, new {@class = "btn btn-danger"})
             </td>
         </tr>
 }

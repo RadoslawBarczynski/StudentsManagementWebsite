@@ -7,16 +7,16 @@
 
 
 
-<h1 class="h2" style="text-align: center">Table of grades</h1>
+<h1 class="h2" style="text-align: center">Tabela ocen</h1>
 
-<table class="table table-hover">
+<table class="table table-striped table-dark">
     <thead>
         <tr style="text-align: center">
             <th>
-                Name
+                Student
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.G_Score)
+                Wartość punktowa
             </th>
             <th></th>
         </tr>
@@ -26,14 +26,14 @@
         {
             <tr style="text-align: center">
                 <td>
-                    @Html.DisplayFor(model => item.student.StudentFirstName)
+                    @Html.DisplayFor(model => item.student.StudentFirstName) @Html.DisplayFor(model => item.student.StudentLastName)
                 </td>
                 <td>
                     @Html.DisplayFor(model => item.G_Score)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new {  id=item.GradeId  }, new {@class = "btn btn-primary"})
-                    @Html.ActionLink("Delete", "Delete", new {  id=item.GradeId  }, new {@class = "btn btn-danger"})
+                    @Html.ActionLink("Eytuj", "Edit", new {  id=item.GradeId  }, new {@class = "btn btn-primary"})
+                    @Html.ActionLink("Usuń", "Delete", new {  id=item.GradeId  }, new {@class = "btn btn-danger"})
                 </td>
             </tr>
         }

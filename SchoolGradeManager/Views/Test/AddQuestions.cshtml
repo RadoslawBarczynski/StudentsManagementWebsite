@@ -1,0 +1,23 @@
+﻿@model SchoolGradeManager.Models.AddQuestionsToTest
+
+@{
+    ViewData["Title"] = "AddQuestions";
+}
+
+<h1>Dodaj pytania do testu: @Model.testForQuestions.TestName</h1>
+
+<form method="post" asp-action="AddQuestions">
+    <input type="hidden" asp-for="testForQuestions.id" />
+
+    @foreach (var pytanie in Model.questionsInTest)
+    {
+        <div>
+            <input type="checkbox" name="Questions" value="@pytanie.id" />
+            <label>@pytanie.operation</label>
+        </div>
+    }
+
+    <button type="submit">Zapisz</button>
+</form>
+
+

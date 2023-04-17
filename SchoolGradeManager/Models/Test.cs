@@ -14,6 +14,9 @@ namespace SchoolGradeManager.Models
         [Required(ErrorMessage = "Instert name of test")]
         public string TestName { get; set; }
 
+        [DisplayName("isActive")]
+        public bool isActive { get; set; }
+
         public virtual List<TestQuestion> TestQuestions { get; set; }
 
     }
