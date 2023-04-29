@@ -1,0 +1,55 @@
+﻿@model IEnumerable<SchoolGradeManager.Models.Homework>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="h2" style="text-align: center">Tabela zadań</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Utwórz nowe zadanie</a>
+</p>
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ScoreToGet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GameNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScoreToGet)
+            </td>
+            <td>
+                    @if(item.GameNumber == 1)
+                    {
+                        <p>@Html.DisplayFor(modelItem => item.GameNumber) : Rozbicie cyfr</p>
+                    }
+                    else if (item.GameNumber == 2)
+                    {
+                        <p>@Html.DisplayFor(modelItem => item.GameNumber) : Wyrównanie równania</p>
+                    }
+                    else if (item.GameNumber == 3)
+                    {
+                        <p>@Html.DisplayFor(modelItem => item.GameNumber) : 2048</p>
+                    }
+                    else if (item.GameNumber == 4)
+                    {
+                        <p>@Html.DisplayFor(modelItem => item.GameNumber) : Znajdź ścieżkę</p>
+                    }
+                </td>
+            <td>
+                    @Html.ActionLink("Edit", "Edit", new {  id=item.id  }, new {@class = "btn btn-primary"}) 
+                    @Html.ActionLink("Delete", "Delete", new {  id=item.id  }, new {@class = "btn btn-danger"})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

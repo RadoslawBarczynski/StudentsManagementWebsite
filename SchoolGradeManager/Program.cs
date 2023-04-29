@@ -24,6 +24,7 @@ builder.Services.AddTransient<IGradeRepository, GradeRepository>();
 builder.Services.AddTransient<IQuestionRepository, QuestionRepository>();
 builder.Services.AddTransient<ITestRepository, TestRepository>();
 builder.Services.AddTransient<ITestQuestionRepository, TestQuestionRepository>();
+builder.Services.AddTransient<IHomeworkRepository, HomeworkRepository>();
 
 var app = builder.Build();
 

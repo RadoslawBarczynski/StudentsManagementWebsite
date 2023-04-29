@@ -34,6 +34,7 @@ namespace SchoolGradeManager.Models
         public DbSet<UserLogin> userLogins { get; set; }    
 
         public DbSet<TestQuestion> TestQuestions { get; set; }  
+        public DbSet<Homework> homeworks { get; set; }
 
     }
 }

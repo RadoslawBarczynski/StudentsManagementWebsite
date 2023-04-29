@@ -1,0 +1,40 @@
+﻿@model SchoolGradeManager.Models.Homework
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="h1">Edycja</h1>
+
+<h4 class="h4">Zadanie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ScoreToGet" class="control-label"></label>
+                <input asp-for="ScoreToGet" class="form-control" />
+                <span asp-validation-for="ScoreToGet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameNumber" class="control-label"></label>
+                <select asp-for="GameNumber" name="GameNumber">
+                    <option value=1>Rozbicie cyfr</option>
+                    <option value=2>Wyrównaj równanie</option>
+                    <option value=3>2048</option>
+                    <option value=4>Znajdź ścieżkę</option>
+                </select>
+                <span asp-validation-for="GameNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Zapisz" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-info" asp-action="Index">Powrót do listy</a>
+</div>
+

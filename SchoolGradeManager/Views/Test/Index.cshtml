@@ -16,10 +16,7 @@
                 Nazwa testu
             </th>
             <th>
-                Nazwa testu
-            </th>
-            <th>
-                Operacja
+                Ilość pytań w teście
             </th>
             <th></th>
         </tr>
@@ -31,10 +28,7 @@
                 @Html.DisplayFor(modelItem => item.TestName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TestQuestions.FirstOrDefault().test.TestName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TestQuestions.FirstOrDefault().question.operation)
+                @Html.DisplayFor(modelItem => item.TestQuestions.Count)
             </td>
             <td>
                     @Html.ActionLink("Edytuj", "Edit",  new {  id=item.id  }, new {@class = "btn btn-primary"})
