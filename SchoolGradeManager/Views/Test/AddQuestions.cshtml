@@ -4,20 +4,24 @@
     ViewData["Title"] = "AddQuestions";
 }
 
-<h1>Dodaj pytania do testu: @Model.testForQuestions.TestName</h1>
+<h1 class="h1">Dodaj pytania do testu: @Model.testForQuestions.TestName</h1>
 
 <form method="post" asp-action="AddQuestions">
     <input type="hidden" asp-for="testForQuestions.id" />
 
     @foreach (var pytanie in Model.questionsInTest)
     {
+        <br />
         <div>
-            <input type="checkbox" name="Questions" value="@pytanie.id" />
-            <label>@pytanie.operation</label>
+            <input class="form-check-input" type="checkbox" name="Questions" value="@pytanie.id" />
+            <label class="form-check-label">@pytanie.operation</label>
         </div>
+        <br />
     }
 
-    <button type="submit">Zapisz</button>
+    <div class="form-group">
+        <input type="submit" value="Zapisz" class="btn btn-success" />
+    </div>
 </form>
 
 

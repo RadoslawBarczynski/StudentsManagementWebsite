@@ -46,6 +46,7 @@ namespace SchoolGradeManager.Repositories
             {
                 result.ScoreToGet = homework.ScoreToGet;
                 result.GameNumber = homework.GameNumber;
+                result.isActive = homework.isActive;
 
                 _context.SaveChanges();
             }

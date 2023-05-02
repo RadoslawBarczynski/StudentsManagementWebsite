@@ -15,5 +15,8 @@ namespace SchoolGradeManager.Models
         [Column("GameNumber")]
         public int GameNumber { get; set; }
 
+        [Column("isActive")]
+        public bool isActive { get; set; }
+
     }
 }

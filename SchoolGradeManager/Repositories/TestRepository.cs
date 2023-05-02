@@ -106,9 +106,8 @@ namespace SchoolTestManager.Repositories
             if (result != null)
             {
                 result.TestName = Test.TestName;
-                bool temp = Test.isActive;
-                bool newTemp = !temp;
-                result.isActive = newTemp;
+                result.isActive = Test.isActive;
+                
 
                 _context.SaveChanges();
             }

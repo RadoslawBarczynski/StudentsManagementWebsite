@@ -18,6 +18,9 @@
             <th>
                 Ilość pytań w teście
             </th>
+            <th>
+                Czy test jest aktywny?
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -29,6 +32,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TestQuestions.Count)
+            </td>
+                <td>
+                @Html.DisplayFor(modelItem => item.isActive)
             </td>
             <td>
                     @Html.ActionLink("Edytuj", "Edit",  new {  id=item.id  }, new {@class = "btn btn-primary"})
