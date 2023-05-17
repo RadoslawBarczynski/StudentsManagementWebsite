@@ -93,6 +93,15 @@ namespace SchoolTestManager.Repositories
         public void Delete(Guid id)
         {
             var result = _context.tests.SingleOrDefault(x => x.id.Equals(id));
+
+            foreach (var item in _context.TestQuestions)
+            {
+                if(item.TestId == result.id)
+                {
+                    _context.TestQuestions.Remove(item);
+                }           
+            }
+            _context.SaveChanges();
             if (result != null)
             {
                 _context.tests.Remove(result);
