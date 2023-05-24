@@ -13,7 +13,7 @@ namespace SchoolGradeManager.Models
         [Column("Score")]
         public int G_Score { get; set; }
 
-        public virtual Student student { get; set; }
+        public virtual Student? student { get; set; }
 
     }
 }

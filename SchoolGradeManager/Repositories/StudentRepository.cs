@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SchoolGradeManager.Models;
+using BCrypt.Net;
 
 namespace SchoolGradeManager.Repositories
 {
@@ -25,6 +26,7 @@ namespace SchoolGradeManager.Repositories
         {
             Guid myuuid = Guid.NewGuid();
             student.id = myuuid;
+            student.StudentPassword = BCrypt.Net.BCrypt.HashPassword(student.StudentPassword, BCrypt.Net.BCrypt.GenerateSalt(12));
             _context.students.Add(student);
             //basic grade template
             Grade grade = new Grade();
@@ -44,9 +46,12 @@ namespace SchoolGradeManager.Repositories
             var result = _context.students.SingleOrDefault(x => x.id.Equals(id));
             if(result != null)
             {
-                _context.grades.Remove(result.grade);
-                _context.students.Remove(result);
-                _context.SaveChanges();
+                var result2 = _context.grades.SingleOrDefault(y => y.GradeId.Equals(result.GradeId));
+                if(result2 != null)
+                {
+                    _context.grades.Remove(result2);
+                    _context.SaveChanges();
+                }
             }
         }
 
