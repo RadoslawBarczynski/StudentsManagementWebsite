@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SchoolGradeManager.Models;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace SchoolGradeManager.Repositories
 {
@@ -20,11 +22,23 @@ namespace SchoolGradeManager.Repositories
 
         public IQueryable<Student> GetAllActive() => _context.students.Include("grade");
 
+        public static string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                string hashedPassword = BitConverter.ToString(hashedBytes).Replace("-", string.Empty);
+                return hashedPassword;
+            }
+        }
+
 
         public void Add(Student student)
         {
             Guid myuuid = Guid.NewGuid();
             student.id = myuuid;
+            //student.StudentPassword = BCrypt.Net.BCrypt.HashPassword(student.StudentPassword, BCrypt.Net.BCrypt.GenerateSalt(12));
+            student.StudentPassword = HashPassword(student.StudentPassword).ToLower();
             _context.students.Add(student);
             //basic grade template
             Grade grade = new Grade();
@@ -44,9 +58,12 @@ namespace SchoolGradeManager.Repositories
             var result = _context.students.SingleOrDefault(x => x.id.Equals(id));
             if(result != null)
             {
-                _context.grades.Remove(result.grade);
-                _context.students.Remove(result);
-                _context.SaveChanges();
+                var result2 = _context.grades.SingleOrDefault(y => y.GradeId.Equals(result.GradeId));
+                if(result2 != null)
+                {
+                    _context.grades.Remove(result2);
+                    _context.SaveChanges();
+                }
             }
         }
 
@@ -58,7 +75,7 @@ namespace SchoolGradeManager.Repositories
                 result.StudentFirstName = student.StudentFirstName;
                 result.StudentLastName = student.StudentLastName;
                 result.StudentLogin = student.StudentLogin;
-                result.StudentPassword = student.StudentPassword;
+                result.StudentPassword = HashPassword(student.StudentPassword).ToLower();
 
                 _context.SaveChanges();
             }

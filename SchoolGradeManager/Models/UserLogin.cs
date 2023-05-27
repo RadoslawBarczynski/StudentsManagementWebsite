@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SchoolGradeManager.Models
 {
+    [Table("UserLogin")]
     public class UserLogin
     {
         [Key]
