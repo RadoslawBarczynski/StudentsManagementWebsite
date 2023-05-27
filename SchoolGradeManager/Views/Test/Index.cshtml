@@ -6,50 +6,102 @@
 
 <h1 class="h2" style="text-align: center">Testy</h1>
 
+<style>
+
+    table td,
+    table th {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    thead th {
+        color: #fff;
+    }
+
+    .card {
+        border-radius: .5rem;
+    }
+
+    .table-scroll {
+        border-radius: .5rem;
+    }
+
+        .table-scroll table thead th {
+            font-size: 1.25rem;
+        }
+
+    thead {
+        top: 0;
+        position: sticky;
+    }
+</style>
+
 <p>
     <a class="btn btn-primary"  asp-action="Create">Utwórz nowy test</a>
 </p>
-<table class="table table-striped table-dark">
-    <thead>
-        <tr>
-            <th>
-                Nazwa testu
-            </th>
-            <th>
-                Ilość pytań w teście
-            </th>
-            <th>
-                Czy test jest aktywny?
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TestName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TestQuestions.Count)
-            </td>
-                <td>
-                    @if (item.isActive)
-                    {
-                        <text>aktywny</text>
-                    }
-                    else
-                    {
-                        <text>nieaktywny</text>
-                    }
-            </td>
-            <td>
-                    @Html.ActionLink("Edytuj", "Edit",  new {  id=item.id  }, new {@class = "btn btn-primary"})
-                    @Html.ActionLink("Dodaj pytania", "AddQuestions",  new {  id=item.id  }, new {@class = "btn btn-primary"})
-                    @Html.ActionLink("Szczegóły", "Details", new {  id=item.id  }, new {@class = "btn btn-secondary"}) 
-                    @Html.ActionLink("Usuń", "Delete",  new {  id=item.id  }, new {@class = "btn btn-danger"})
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<section class="intro">
+    <div class="bg-image h-100" style="background-color: #212529;">
+        <div class="mask d-flex align-items-center h-100">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px; background-color:#212529;text-align:center;">
+                                    <table class="table table-striped mb-0 table-dark">
+                                        <thead style="background-color: #002d72;">
+                                            <tr>
+                                                <th>
+                                                    Nazwa testu
+                                                </th>
+                                                <th>
+                                                    Ilość pytań w teście
+                                                </th>
+                                                <th>
+                                                    Czy test jest aktywny?
+                                                </th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.TestName)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.TestQuestions.Count)
+                                                    </td>
+                                                    <td>
+                                                        @if (item.isActive)
+                                                        {
+                                                            <text>aktywny</text>
+                                                        }
+                                                        else
+                                                        {
+                                                            <text>nieaktywny</text>
+                                                        }
+                                                    </td>
+                                                    <td>
+                                                        @Html.ActionLink("Edytuj", "Edit",  new {  id=item.id  }, new {@class = "btn btn-primary"})
+                                                        @Html.ActionLink("Dodaj pytania", "AddQuestions",  new {  id=item.id  }, new {@class = "btn btn-primary"})
+                                                        @Html.ActionLink("Szczegóły", "Details", new {  id=item.id  }, new {@class = "btn btn-secondary"})
+                                                        @Html.ActionLink("Usuń", "Delete",  new {  id=item.id  }, new {@class = "btn btn-danger"})
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

@@ -80,5 +80,30 @@ namespace SchoolGradeManager.Repositories
                 _context.SaveChanges();
             }
         }
+
+        public List<Student> Search(string name)
+        {
+            var result = _context.students.Include("grade").Where(e => e.StudentLastName.ToLower().Contains(name.ToLower())).ToList();
+
+            return result;
+        }
+
+        public List<string> GetSuggestions(string term)
+        {
+            // Pobierz podpowiedzi z bazy danych lub innego źródła na podstawie wprowadzonego tekstu
+            // Możesz wykorzystać LINQ, zapytanie do bazy danych, czy inne metody dostępu do danych
+
+            List<string> suggestions = new List<string>();
+
+            // Przykładowe zapytanie do bazy danych na podstawie nazwy studenta
+            var matchingStudents = _context.students
+                .Where(s => s.StudentLastName.Contains(term))
+                .Select(s => s.StudentLastName)
+                .ToList();
+
+            suggestions.AddRange(matchingStudents);
+
+            return suggestions;
+        }
     }
 }

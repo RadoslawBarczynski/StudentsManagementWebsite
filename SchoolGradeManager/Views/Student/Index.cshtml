@@ -3,45 +3,129 @@
 @{
     ViewData["Title"] = "Index";
 }
-
 <h1 class="h2" style="text-align: center">Tabela studentów</h1>
 
-<p>
-    <a class="btn btn-primary" asp-action="Create">Utwórz nowego studenta</a>
-</p>
-<table class="table table-striped table-dark">
-    <thead>
-        <tr>
-            <th>
-                Imię ucznia
-            </th>
-            <th>
-                Nazwisko ucznia
-            </th>
-            <th>
-                Ilość punktów
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.StudentFirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StudentLastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.grade.G_Score)
-            </td>
-            <td>
-                @Html.ActionLink("Edytuj", "Edit", new {  id=item.id  }, new {@class = "btn btn-primary"}) 
-                @Html.ActionLink("Szczegóły", "Details", new {  id=item.id  }, new {@class = "btn btn-secondary"}) 
-                @Html.ActionLink("Usuń", "Delete", new {  id=item.id  }, new {@class = "btn btn-danger"})
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<style>
+
+    table td,
+    table th {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    thead th {
+        color: #fff;
+    }
+
+    .card {
+        border-radius: .5rem;
+    }
+
+    .table-scroll {
+        border-radius: .5rem;
+    }
+
+        .table-scroll table thead th {
+            font-size: 1.25rem;
+        }
+
+    thead {
+        top: 0;
+        position: sticky;
+    }
+</style>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery-ui-1.13.2/jquery-ui.min.js"></script>
+
+<script>
+    $(function () {
+        $("#name").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: "/Student/SearchAutocomplete", // Ścieżka do akcji kontrolera, która obsługuje pobieranie podpowiedzi
+                    data: { term: request.term },
+                    success: function (data) {
+                        response(data); // Dane podpowiedzi przekazane jako odpowiedź
+                    }
+                });
+            },
+            minLength: 2 // Minimalna liczba znaków przed wyszukaniem podpowiedzi
+        });
+    });
+</script>
+
+<div class="d-flex justify-content-between">
+    <div>
+        <a class="btn btn-primary" asp-action="Create">Utwórz nowego studenta</a>
+    </div>
+    <div>
+        <form asp-controller="Student" asp-action="Search" method="get">
+            <div class="input-group">
+                <div class="form-outline ui-widget">
+                    <input type="search" id="name" placeholder="Wpisz nazwisko..." name="name" class="form-control tags" />
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<section class="intro">
+    <div class="bg-image h-100" style="background-color: #212529;">
+        <div class="mask d-flex align-items-center h-100">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px; background-color:#212529;text-align:center;">
+                                    <table class="table table-striped mb-0 table-dark">
+                                        <thead style="background-color: #002d72;">
+                                            <tr>
+                                                <th>
+                                                    Imię ucznia
+                                                </th>
+                                                <th>
+                                                    Nazwisko ucznia
+                                                </th>
+                                                <th>
+                                                    Ilość punktów
+                                                </th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.StudentFirstName)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.StudentLastName)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.grade.G_Score)
+                                                    </td>
+                                                    <td>
+                                                        @Html.ActionLink("Edytuj", "Edit", new {  id=item.id  }, new {@class = "btn btn-primary"})
+                                                        @Html.ActionLink("Szczegóły", "Details", new {  id=item.id  }, new {@class = "btn btn-secondary"})
+                                                        @Html.ActionLink("Usuń", "Delete", new {  id=item.id  }, new {@class = "btn btn-danger"})
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

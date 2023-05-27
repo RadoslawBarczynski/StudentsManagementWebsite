@@ -77,5 +77,19 @@ namespace SchoolGradeManager.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public ActionResult Search(string name)
+        {
+            List<Student> results = _studentRepository.Search(name);
+
+            return View("Search", results);
+        }
+
+        public IActionResult SearchAutocomplete(string term)
+        {
+            var suggestions = _studentRepository.GetSuggestions(term); // Pobierz podpowiedzi z bazy danych lub innego źródła
+
+            return Json(suggestions); // Zwróć podpowiedzi jako dane JSON
+        }
+
     }
 }

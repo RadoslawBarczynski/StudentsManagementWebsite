@@ -9,5 +9,9 @@ namespace SchoolGradeManager.Repositories
         void Add(Student student);
         void Update(Guid id, Student student);
         void Delete(Guid id);
+
+        List<Student> Search(string name);
+
+        public List<string> GetSuggestions(string term);
     }
 }

@@ -1,9 +1,10 @@
-﻿@model IEnumerable<SchoolGradeManager.Models.Grade>
+﻿@model IEnumerable<SchoolGradeManager.Models.Student>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Search";
 }
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<h1 class="h1">Wynik wyszukiwania</h1>
 
 <style>
 
@@ -36,10 +37,6 @@
     }
 </style>
 
-
-
-<h1 class="h2" style="text-align: center">Tabela ocen</h1>
-
 <section class="intro">
     <div class="bg-image h-100" style="background-color: #212529;">
         <div class="mask d-flex align-items-center h-100">
@@ -51,12 +48,15 @@
                                 <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px; background-color:#212529;text-align:center;">
                                     <table class="table table-striped mb-0 table-dark">
                                         <thead style="background-color: #002d72;">
-                                            <tr style="text-align: center">
+                                            <tr>
                                                 <th>
-                                                    Student
+                                                    Imię ucznia
                                                 </th>
                                                 <th>
-                                                    Wartość punktowa
+                                                    Nazwisko ucznia
+                                                </th>
+                                                <th>
+                                                    Ilość punktów
                                                 </th>
                                                 <th></th>
                                             </tr>
@@ -64,16 +64,20 @@
                                         <tbody>
                                             @foreach (var item in Model)
                                             {
-                                                <tr style="text-align: center">
+                                                <tr>
                                                     <td>
-                                                        @Html.DisplayFor(model => item.student.StudentFirstName) @Html.DisplayFor(model => item.student.StudentLastName)
+                                                        @Html.DisplayFor(modelItem => item.StudentFirstName)
                                                     </td>
                                                     <td>
-                                                        @Html.DisplayFor(model => item.G_Score)
+                                                        @Html.DisplayFor(modelItem => item.StudentLastName)
                                                     </td>
                                                     <td>
-                                                        @Html.ActionLink("Eytuj", "Edit", new {  id=item.GradeId  }, new {@class = "btn btn-primary"})
-                                                        @Html.ActionLink("Usuń", "Delete", new {  id=item.GradeId  }, new {@class = "btn btn-danger"})
+                                                        @Html.DisplayFor(modelItem => item.grade.G_Score)
+                                                    </td>
+                                                    <td>
+                                                        @Html.ActionLink("Edytuj", "Edit", new {  id=item.id  }, new {@class = "btn btn-primary"})
+                                                        @Html.ActionLink("Szczegóły", "Details", new {  id=item.id  }, new {@class = "btn btn-secondary"})
+                                                        @Html.ActionLink("Usuń", "Delete", new {  id=item.id  }, new {@class = "btn btn-danger"})
                                                     </td>
                                                 </tr>
                                             }
@@ -88,6 +92,4 @@
         </div>
     </div>
 </section>
-
-
 
