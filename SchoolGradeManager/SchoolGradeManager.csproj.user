@@ -11,6 +11,7 @@
     <WebStackScaffolding_IsReferencingScriptLibrariesSelected>False</WebStackScaffolding_IsReferencingScriptLibrariesSelected>
     <WebStackScaffolding_LayoutPageFile />
     <ActiveDebugProfile>SchoolGradeManager</ActiveDebugProfile>
+    <NameOfLastUsedPublishProfile>D:\VSProjects\StudentManagementDatabase\StudentsManagementWebsite\SchoolGradeManager\Properties\PublishProfiles\StudentManagementRBarczynski - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>

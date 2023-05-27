@@ -34,7 +34,14 @@
                 @Html.DisplayFor(modelItem => item.TestQuestions.Count)
             </td>
                 <td>
-                @Html.DisplayFor(modelItem => item.isActive)
+                    @if (item.isActive)
+                    {
+                        <text>aktywny</text>
+                    }
+                    else
+                    {
+                        <text>nieaktywny</text>
+                    }
             </td>
             <td>
                     @Html.ActionLink("Edytuj", "Edit",  new {  id=item.id  }, new {@class = "btn btn-primary"})

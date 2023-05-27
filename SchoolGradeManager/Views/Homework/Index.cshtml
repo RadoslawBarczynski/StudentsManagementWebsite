@@ -18,6 +18,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.GameNumber)
             </th>
+            <th>
+                Czy zadanie jest aktywne?
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -43,6 +46,16 @@
                     else if (item.GameNumber == 4)
                     {
                         <p>@Html.DisplayFor(modelItem => item.GameNumber) : Znajdź ścieżkę</p>
+                    }
+                </td>
+                <td>
+                    @if (item.isActive)
+                    {
+                        <text>aktywny</text>
+                    }
+                    else
+                    {
+                        <text>nieaktywny</text>
                     }
                 </td>
             <td>
