@@ -15,9 +15,21 @@ namespace SchoolGradeManager.Controllers
         }
 
         // GET: GradeController
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pageSize = 7)
         {
-            return View(_testRepository.GetAllActive());
+            var tests = _testRepository.GetAllActive();
+
+            int totalCount = tests.Count();
+            int totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
+
+            var paginatedStudents = tests.Skip((page - 1) * pageSize).Take(pageSize);
+
+            ViewBag.Page = page;
+            ViewBag.PageSize = pageSize;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.TotalCount = totalCount;
+
+            return View(paginatedStudents);
         }
 
         // GET: QuestionController/Details/5

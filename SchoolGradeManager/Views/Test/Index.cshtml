@@ -102,6 +102,23 @@
             </div>
         </div>
     </div>
+    <div class="paginationButtons">
+        <div>
+            Page: @ViewBag.Page / @ViewBag.TotalPages
+        </div>
+
+        <div>
+            @if (ViewBag.Page > 1)
+            {
+                @Html.ActionLink("Poprzednia", "Index", new { page = ViewBag.Page - 1, pageSize = ViewBag.PageSize })
+            }
+
+            @if (ViewBag.Page < ViewBag.TotalPages)
+            {
+                @Html.ActionLink("Następna", "Index", new { page = ViewBag.Page + 1, pageSize = ViewBag.PageSize })
+            }
+        </div>
+    </div>
 </section>
 
 

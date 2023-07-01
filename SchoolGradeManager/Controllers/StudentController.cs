@@ -18,9 +18,21 @@ namespace SchoolGradeManager.Controllers
         }
 
         // GET: StudentController
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pageSize = 3)
         {
-            return View(_studentRepository.GetAllActive());
+            var students = _studentRepository.GetAllActive();
+
+            int totalCount = students.Count();
+            int totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
+
+            var paginatedStudents = students.Skip((page - 1) * pageSize).Take(pageSize);
+
+            ViewBag.Page = page;
+            ViewBag.PageSize = pageSize;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.TotalCount = totalCount;
+
+            return View(paginatedStudents);
         }
 
         // GET: StudentController/Details/5

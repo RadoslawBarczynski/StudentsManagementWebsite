@@ -18,3 +18,39 @@ body {
     background-color: #212529;
     color: white;
 }
+
+.ui-autocomplete {
+    background-color: #212324;
+    width: 20%;
+}
+
+.ui-menu-item{
+    cursor: pointer;
+    font-weight:bold;
+}
+
+.paginationButtons {
+    float: right;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 15px;
+    margin-top: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+    .paginationButtons a:link, .paginationButtons a:visited {
+        background-color: none;
+        color: #0d6efd;
+        padding: 8px 17px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 15px;
+        border: 1px solid #0d6efd;
+    }
+
+    .paginationButtons a:hover, .paginationButtons a:active {
+        background-color: #0d6efd;
+        color: white;
+    }
