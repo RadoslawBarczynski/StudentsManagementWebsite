@@ -1,4 +1,28 @@
-﻿.divider:after,
+﻿body {
+    margin-bottom: 60px;
+    background-color: #212529 !important;
+    color: white !important;
+}
+
+.bottomBar {
+    background-color: #171717 !important;
+}
+
+.submitButton {
+    color: white;
+    background-color: #212529;
+    border-color: #ff8400;
+    font-weight: bold;
+    border: 3px solid #ff8400;
+}
+
+.submitButton:hover {
+    color: black;
+    background-color: #ff8400;
+    border-color: #ff8400;
+}
+
+.divider:after,
 .divider:before {
     content: "";
     flex: 1;

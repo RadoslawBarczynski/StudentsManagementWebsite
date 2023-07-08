@@ -8,6 +8,7 @@ D:\VSProjects\StudentManagementDatabase\StudentsManagementWebsite\SchoolGradeMan
 D:\VSProjects\StudentManagementDatabase\StudentsManagementWebsite\SchoolGradeManager\obj\Release\net6.0\PubTmp\Out\SchoolGradeManager.pdb
 D:\VSProjects\StudentManagementDatabase\StudentsManagementWebsite\SchoolGradeManager\obj\Release\net6.0\PubTmp\Out\Azure.Core.dll
 D:\VSProjects\StudentManagementDatabase\StudentsManagementWebsite\SchoolGradeManager\obj\Release\net6.0\PubTmp\Out\Azure.Identity.dll
+D:\VSProjects\StudentManagementDatabase\StudentsManagementWebsite\SchoolGradeManager\obj\Release\net6.0\PubTmp\Out\BCrypt.Net.dll
 D:\VSProjects\StudentManagementDatabase\StudentsManagementWebsite\SchoolGradeManager\obj\Release\net6.0\PubTmp\Out\Functions.dll
 D:\VSProjects\StudentManagementDatabase\StudentsManagementWebsite\SchoolGradeManager\obj\Release\net6.0\PubTmp\Out\Gotrue.dll
 D:\VSProjects\StudentManagementDatabase\StudentsManagementWebsite\SchoolGradeManager\obj\Release\net6.0\PubTmp\Out\Humanizer.dll

@@ -413,6 +413,82 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
+      "Id": "D:\\VSProjects\\StudentManagementDatabase\\StudentsManagementWebsite\\SchoolGradeManager\\wwwroot\\lib\\jquery\\dist\\jquery-ui-1.13.2\\AUTHORS.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery-ui-1.13.2\\AUTHORS.txt"
+    },
+    {
+      "Id": "D:\\VSProjects\\StudentManagementDatabase\\StudentsManagementWebsite\\SchoolGradeManager\\wwwroot\\lib\\jquery\\dist\\jquery-ui-1.13.2\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery-ui-1.13.2\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\VSProjects\\StudentManagementDatabase\\StudentsManagementWebsite\\SchoolGradeManager\\wwwroot\\lib\\jquery\\dist\\jquery-ui-1.13.2\\external\\jquery\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery-ui-1.13.2\\external\\jquery\\jquery.js"
+    },
+    {
+      "Id": "D:\\VSProjects\\StudentManagementDatabase\\StudentsManagementWebsite\\SchoolGradeManager\\wwwroot\\lib\\jquery\\dist\\jquery-ui-1.13.2\\images\\ui-icons_444444_256x240.png",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery-ui-1.13.2\\images\\ui-icons_444444_256x240.png"
+    },
+    {
+      "Id": "D:\\VSProjects\\StudentManagementDatabase\\StudentsManagementWebsite\\SchoolGradeManager\\wwwroot\\lib\\jquery\\dist\\jquery-ui-1.13.2\\images\\ui-icons_555555_256x240.png",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery-ui-1.13.2\\images\\ui-icons_555555_256x240.png"
+    },
+    {
+      "Id": "D:\\VSProjects\\StudentManagementDatabase\\StudentsManagementWebsite\\SchoolGradeManager\\wwwroot\\lib\\jquery\\dist\\jquery-ui-1.13.2\\images\\ui-icons_777620_256x240.png",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery-ui-1.13.2\\images\\ui-icons_777620_256x240.png"
+    },
+    {
+      "Id": "D:\\VSProjects\\StudentManagementDatabase\\StudentsManagementWebsite\\SchoolGradeManager\\wwwroot\\lib\\jquery\\dist\\jquery-ui-1.13.2\\images\\ui-icons_777777_256x240.png",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery-ui-1.13.2\\images\\ui-icons_777777_256x240.png"
+    },
+    {
+      "Id": "D:\\VSProjects\\StudentManagementDatabase\\StudentsManagementWebsite\\SchoolGradeManager\\wwwroot\\lib\\jquery\\dist\\jquery-ui-1.13.2\\images\\ui-icons_cc0000_256x240.png",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery-ui-1.13.2\\images\\ui-icons_cc0000_256x240.png"
+    },
+    {
+      "Id": "D:\\VSProjects\\StudentManagementDatabase\\StudentsManagementWebsite\\SchoolGradeManager\\wwwroot\\lib\\jquery\\dist\\jquery-ui-1.13.2\\images\\ui-icons_ffffff_256x240.png",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery-ui-1.13.2\\images\\ui-icons_ffffff_256x240.png"
+    },
+    {
+      "Id": "D:\\VSProjects\\StudentManagementDatabase\\StudentsManagementWebsite\\SchoolGradeManager\\wwwroot\\lib\\jquery\\dist\\jquery-ui-1.13.2\\index.html",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery-ui-1.13.2\\index.html"
+    },
+    {
+      "Id": "D:\\VSProjects\\StudentManagementDatabase\\StudentsManagementWebsite\\SchoolGradeManager\\wwwroot\\lib\\jquery\\dist\\jquery-ui-1.13.2\\jquery-ui.css",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery-ui-1.13.2\\jquery-ui.css"
+    },
+    {
+      "Id": "D:\\VSProjects\\StudentManagementDatabase\\StudentsManagementWebsite\\SchoolGradeManager\\wwwroot\\lib\\jquery\\dist\\jquery-ui-1.13.2\\jquery-ui.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery-ui-1.13.2\\jquery-ui.js"
+    },
+    {
+      "Id": "D:\\VSProjects\\StudentManagementDatabase\\StudentsManagementWebsite\\SchoolGradeManager\\wwwroot\\lib\\jquery\\dist\\jquery-ui-1.13.2\\jquery-ui.min.css",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery-ui-1.13.2\\jquery-ui.min.css"
+    },
+    {
+      "Id": "D:\\VSProjects\\StudentManagementDatabase\\StudentsManagementWebsite\\SchoolGradeManager\\wwwroot\\lib\\jquery\\dist\\jquery-ui-1.13.2\\jquery-ui.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery-ui-1.13.2\\jquery-ui.min.js"
+    },
+    {
+      "Id": "D:\\VSProjects\\StudentManagementDatabase\\StudentsManagementWebsite\\SchoolGradeManager\\wwwroot\\lib\\jquery\\dist\\jquery-ui-1.13.2\\jquery-ui.structure.css",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery-ui-1.13.2\\jquery-ui.structure.css"
+    },
+    {
+      "Id": "D:\\VSProjects\\StudentManagementDatabase\\StudentsManagementWebsite\\SchoolGradeManager\\wwwroot\\lib\\jquery\\dist\\jquery-ui-1.13.2\\jquery-ui.structure.min.css",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery-ui-1.13.2\\jquery-ui.structure.min.css"
+    },
+    {
+      "Id": "D:\\VSProjects\\StudentManagementDatabase\\StudentsManagementWebsite\\SchoolGradeManager\\wwwroot\\lib\\jquery\\dist\\jquery-ui-1.13.2\\jquery-ui.theme.css",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery-ui-1.13.2\\jquery-ui.theme.css"
+    },
+    {
+      "Id": "D:\\VSProjects\\StudentManagementDatabase\\StudentsManagementWebsite\\SchoolGradeManager\\wwwroot\\lib\\jquery\\dist\\jquery-ui-1.13.2\\jquery-ui.theme.min.css",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery-ui-1.13.2\\jquery-ui.theme.min.css"
+    },
+    {
+      "Id": "D:\\VSProjects\\StudentManagementDatabase\\StudentsManagementWebsite\\SchoolGradeManager\\wwwroot\\lib\\jquery\\dist\\jquery-ui-1.13.2\\package.json",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery-ui-1.13.2\\package.json"
+    },
+    {
       "Id": "D:\\VSProjects\\StudentManagementDatabase\\StudentsManagementWebsite\\SchoolGradeManager\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },

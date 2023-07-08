@@ -4,53 +4,96 @@
     ViewData["Title"] = "Create";
 }
 
-<h1 class="h1">Create</h1>
+<style>
+    .tutorial {
+        background-color: #212529;
+        padding: 20px;
+    }
+</style>
 
-<h4 class="h4">Question</h4>
-<hr />
+<h1 class="h1">Utwórz</h1>
+
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-8">
+        <h4 class="h4">Pytanie</h4>
+        <hr />
+
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="operation" class="control-label"></label>
-                <input asp-for="operation" id="operationId" class="form-control" onchange="calculate_result()" />
+                <label class="control-label">Operacja</label>
+                <input id="operationId" class="form-control" onchange="calculate_result()" />
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="operation" class="control-label">Działanie wyjściowe</label>
+                <input asp-for="operation" id="modifiedOperationId" class="form-control" readonly />
                 <span asp-validation-for="operation" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="answer1" class="control-label"></label>
+                <label asp-for="answer1" class="control-label">Poprawna odpowiedź</label>
                 <input asp-for="answer1" id="answer1Id" class="form-control" readonly />
                 <span asp-validation-for="answer1" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="answer2" class="control-label"></label>
-                <input asp-for="answer2" class="form-control" />
+                <label asp-for="answer2" class="control-label">Niepoprawna odpowiedź</label>
+                <input asp-for="answer2" id="answer2Id" class="form-control" />
                 <span asp-validation-for="answer2" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="answer3" class="control-label"></label>
-                <input asp-for="answer3" class="form-control" />
+                <label asp-for="answer3" class="control-label">Niepoprawna odpowiedź</label>
+                <input asp-for="answer3" id="answer3Id" class="form-control" />
                 <span asp-validation-for="answer3" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
-        <script>
-            function calculate_result()
-            {
+    </div>
+            <script>
+           function calculate_result() {
                 var operationValue = document.getElementById("operationId").value;
 
+                var modifiedOperation = operationValue.replace("*", " × ").replace("/", " ÷ ").replace("+", " + ").replace("-", " - ");
+                document.getElementById("modifiedOperationId").value = modifiedOperation;
+
                 var result = eval(operationValue);
-                document.getElementById("answer1Id").value = result;
+                var roundedResult = result.toFixed(2); // Zaokrąglenie wyniku do dwóch miejsc po przecinku
+                document.getElementById("answer1Id").value = roundedResult;
+
+                var incorrectAnswer1 = generateIncorrectAnswer(result);
+                document.getElementById("answer2Id").value = incorrectAnswer1;
+
+                var incorrectAnswer2 = generateIncorrectAnswer(result);
+                document.getElementById("answer3Id").value = incorrectAnswer2;
+            }
+
+            function generateIncorrectAnswer(correctAnswer) {
+                var deviation = Math.floor(Math.random() * 10) + 1; // Wygenerowanie losowej odchyłki od poprawnej odpowiedzi
+                var sign = Math.random() < 0.5 ? -1 : 1; // Wygenerowanie losowego znaku
+
+                // Wygenerowanie błędnej odpowiedzi na podstawie odchyłki i znaku
+                var incorrectAnswer = correctAnswer + (sign * deviation);
+
+                return incorrectAnswer.toFixed(2);
             }
         </script>
+    <div class="col-md-4">
+        <div class="tutorial">
+            <h5 class="h5">Jak to działa?</h5>
+            <p>1. Wpisz działanie matematyczne w polu "Operacja".</p>
+            <p>2. Działanie może zawierać znaki: +, -, *, /.</p>
+            <p>3. Po wpisaniu działania, wynik będzie automatycznie obliczany i wyświetlany w polu "Działanie wyjściowe".</p>
+            <p>4. Poprawna odpowiedź zostanie automatycznie wypełniona w polu "Poprawna odpowiedź".</p>
+            <p>5. Niepoprawna odpowiedź zostanie automatycznie wypełniona w polu "Niepoprawna odpowiedź".</p>
+        </div>
     </div>
 </div>
 
 <div>
     <a class="btn btn-info" asp-action="Index">Powrót do listy</a>
 </div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

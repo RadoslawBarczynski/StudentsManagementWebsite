@@ -293,3 +293,4 @@ D:\VSProjects\StudentManagementDatabase\StudentsManagementWebsite\SchoolGradeMan
 D:\VSProjects\StudentManagementDatabase\StudentsManagementWebsite\SchoolGradeManager\obj\Release\net6.0\SchoolGradeManager.pdb
 D:\VSProjects\StudentManagementDatabase\StudentsManagementWebsite\SchoolGradeManager\obj\Release\net6.0\SchoolGradeManager.genruntimeconfig.cache
 D:\VSProjects\StudentManagementDatabase\StudentsManagementWebsite\SchoolGradeManager\obj\Release\net6.0\ref\SchoolGradeManager.dll
+D:\VSProjects\StudentManagementDatabase\StudentsManagementWebsite\SchoolGradeManager\bin\Release\net6.0\BCrypt.Net.dll
