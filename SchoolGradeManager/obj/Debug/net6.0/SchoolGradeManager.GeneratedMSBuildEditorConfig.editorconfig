@@ -5,145 +5,144 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
-build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SchoolGradeManager
 build_property.RootNamespace = SchoolGradeManager
-build_property.ProjectDir = D:\VSProjects\StudentManagementDatabase\StudentsManagementWebsite\SchoolGradeManager\
+build_property.ProjectDir = E:\VsCodeProgramms\SchoolGradeManager\SchoolGradeManager\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\VSProjects\StudentManagementDatabase\StudentsManagementWebsite\SchoolGradeManager
+build_property.MSBuildProjectDirectory = E:\VsCodeProgramms\SchoolGradeManager\SchoolGradeManager
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Grade/Delete.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Grade/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhZGVcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Grade/Details.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Grade/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhZGVcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Grade/Edit.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Grade/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhZGVcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Grade/Index.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Grade/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhZGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Homework/Create.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Homework/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZXdvcmtcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Homework/Delete.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Homework/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZXdvcmtcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Homework/Edit.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Homework/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZXdvcmtcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Homework/Index.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Homework/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZXdvcmtcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Home/Index.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Login/Index.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Login/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Login/Success.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Login/Success.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cU3VjY2Vzcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Question/Create.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Question/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlc3Rpb25cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Question/Delete.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Question/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlc3Rpb25cRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Question/Details.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Question/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlc3Rpb25cRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Question/Edit.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Question/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlc3Rpb25cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Question/Index.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Question/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlc3Rpb25cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Shared/_ValidationScriptsPartial.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Student/Create.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Student/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Student/Delete.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Student/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Student/Details.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Student/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Student/Edit.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Student/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Student/Index.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Student/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Student/Search.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Student/Search.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxTZWFyY2guY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/TestQuestion/Index.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/TestQuestion/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFF1ZXN0aW9uXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Test/AddQuestions.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Test/AddQuestions.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxBZGRRdWVzdGlvbnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Test/Create.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Test/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Test/Delete.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Test/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Test/Details.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Test/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Test/Edit.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Test/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Test/Index.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Test/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/_ViewImports.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/_ViewStart.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/VSProjects/StudentManagementDatabase/StudentsManagementWebsite/SchoolGradeManager/Views/Shared/_Layout.cshtml]
+[E:/VsCodeProgramms/SchoolGradeManager/SchoolGradeManager/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-33bck7jngv

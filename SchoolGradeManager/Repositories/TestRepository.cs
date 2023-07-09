@@ -44,11 +44,19 @@ namespace SchoolTestManager.Repositories
         public AddQuestionsToTest AddQuestions(Guid id)
         {
             var test = _context.tests.FirstOrDefault(x => x.id.Equals(id));
-            var questions = _context.questions.ToList();
+
+            var questions = _context.questions
+    .Where(q => !_context.TestQuestions.Any(tq => tq.TestId.Equals(id) && tq.QuestionId.Equals(q.id)))
+    .ToList();
+
+            var checkedQuestions = _context.questions
+    .Where(q => _context.TestQuestions.Any(tq => tq.TestId.Equals(id) && tq.QuestionId.Equals(q.id)))
+    .ToList();
 
             var addQuestionsToTest = new AddQuestionsToTest
             {
                 questionsInTest = questions,
+                questionsInTestChecked = checkedQuestions,
                 testForQuestions = test
             };
             return addQuestionsToTest;
@@ -61,21 +69,37 @@ namespace SchoolTestManager.Repositories
             System.Diagnostics.Debug.WriteLine(Questions.Count);
             System.Diagnostics.Debug.WriteLine("=====================================");
 
+            var existingTestQuestions = _context.TestQuestions
+    .Where(tq => tq.test == test && !Questions.Contains(tq.question.id))
+    .ToList();
+
+            foreach (var existingTestQuestion in existingTestQuestions)
+            {
+                _context.TestQuestions.Remove(existingTestQuestion);
+            }
+
+            _context.SaveChanges();
+
             foreach (var questionId in Questions)
             {
                 var question = _context.questions.FirstOrDefault(q => q.id == questionId);
 
-                if(question != null)
+                if (question != null)
                 {
-                    Guid myuuid = Guid.NewGuid();
-                    TestQuestion testQuestion = new TestQuestion();
-                    testQuestion.id = myuuid;
-                    testQuestion.test = test;
-                    testQuestion.question = question;
+                    bool connectionExists = _context.TestQuestions.Any(tq => tq.test == test && tq.question == question);
 
-                    _context.TestQuestions.Add(testQuestion);
+                    if (!connectionExists)
+                    {
+                        Guid myuuid = Guid.NewGuid();
+                        TestQuestion testQuestion = new TestQuestion();
+                        testQuestion.id = myuuid;
+                        testQuestion.test = test;
+                        testQuestion.question = question;
 
-                    _context.SaveChanges();
+                        _context.TestQuestions.Add(testQuestion);
+
+                        _context.SaveChanges();
+                    }
                 }
             }
         }
