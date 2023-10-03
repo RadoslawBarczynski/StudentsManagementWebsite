@@ -53,10 +53,10 @@
                                         <thead style="background-color: #002d72;">
                                             <tr>
                                                 <th>
-                                                    @Html.DisplayNameFor(model => model.ScoreToGet)
+                                                    Punkty do zdobycia
                                                 </th>
                                                 <th>
-                                                    @Html.DisplayNameFor(model => model.GameNumber)
+                                                    Numer gry
                                                 </th>
                                                 <th>
                                                     Czy zadanie jest aktywne?
@@ -100,8 +100,8 @@
                                                         }
                                                     </td>
                                                     <td>
-                                                        @Html.ActionLink("Edit", "Edit", new {  id=item.id  }, new {@class = "btn btn-primary"})
-                                                        @Html.ActionLink("Delete", "Delete", new {  id=item.id  }, new {@class = "btn btn-danger"})
+                                                        @Html.ActionLink("Edytuj", "Edit", new {  id=item.id  }, new {@class = "btn btn-primary"})
+                                                        @Html.ActionLink("Usuń", "Delete", new {  id=item.id  }, new {@class = "btn btn-danger"})
                                                     </td>
                                                 </tr>
                                             }
