@@ -70,9 +70,6 @@ body {
     align-items: center;
 }
 
-.grid-wrapper {
-}
-
 .grid-parent {
     max-width: 1200px;
     margin: 0 auto;
