@@ -3,6 +3,7 @@ using SchoolGradeManager.Models;
 using SchoolGradeManager.Repositories;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using SchoolTestManager.Repositories;
+using SchoolGradeManager.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,18 @@ builder.Services.AddSession();
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<StudentManagerContext>(options =>
         options.UseNpgsql(builder.Configuration.GetConnectionString("StudentManagerDatabase")));
+
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+});
+
+builder.Services.AddScoped<SessionFilter>();
+builder.Services.AddControllersWithViews(options =>
+{
+    options.Filters.AddService<SessionFilter>();
+});
 
 /*builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
 {

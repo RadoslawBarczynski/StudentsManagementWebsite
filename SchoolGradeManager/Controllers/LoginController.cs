@@ -2,15 +2,19 @@
 using Microsoft.AspNetCore.Mvc;
 using BCrypt.Net;
 using SchoolGradeManager.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SchoolGradeManager.Controllers
 {
+    [IgnoreAntiforgeryToken]
     public class LoginController : Controller
     {
         private readonly StudentManagerContext _context;
-        public LoginController(StudentManagerContext context)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public LoginController(StudentManagerContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
         // GET: LoginController
         public ActionResult Index()
@@ -25,14 +29,15 @@ namespace SchoolGradeManager.Controllers
             foreach (var element in _context.userLogins) {
                 if (username != null && password != null && username.Equals(element.username) && BCrypt.Net.BCrypt.Verify(password, element.password))
                 {
-                    HttpContext.Session.SetString("username", username);
+                    //HttpContext.Session.SetString("username", username);
+                    _httpContextAccessor.HttpContext.Session.SetString("username", username);
                     return Redirect("Student/Index");
                 }
-                else
-                {
-                    ViewBag.error = "Niepoprawne dane";
-                    return View("Index");
-                }
+                //else
+                //{
+                //    ViewBag.error = "Niepoprawne dane";
+                //    return View("Index");
+                //}
             }
             return View("Index");
         }
@@ -41,7 +46,8 @@ namespace SchoolGradeManager.Controllers
         [HttpGet]
         public IActionResult Logout()
         {
-            HttpContext.Session.Remove("username");
+            //HttpContext.Session.Remove("username");
+            _httpContextAccessor.HttpContext.Session.Remove("username");
             return RedirectToAction("Index");
         }
     }
