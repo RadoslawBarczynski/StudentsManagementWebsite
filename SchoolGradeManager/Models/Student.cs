@@ -29,6 +29,9 @@ namespace SchoolGradeManager.Models
         [Required(ErrorMessage = "Instert Email of the student")]
         public string StudentPassword { get; set; }
 
+        [Column("TeacherId")]
+        public Guid TeacherId { get; set; }
+
 
         public Guid? GradeId { get; set; }
         public virtual Grade grade { get; set; }

@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using SchoolGradeManager.Models;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace SchoolGradeManager.Repositories
 {
@@ -7,12 +9,20 @@ namespace SchoolGradeManager.Repositories
     {
 
         private readonly StudentManagerContext _context;
-        public HomeworkRepository(StudentManagerContext context)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public HomeworkRepository(StudentManagerContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
 
-        public IQueryable<Homework> GetAllActive() => _context.homeworks;
+        public IQueryable<Homework> GetAllActive()
+        {
+            string teacherIdFromSession = _httpContextAccessor.HttpContext.Session.GetString("TeacherId");
+
+            return _context.homeworks
+                .Where(homework => homework.teacherid.ToString() == teacherIdFromSession);
+        }
         public Homework Get(Guid id)
         {
             Homework homework = _context.homeworks.SingleOrDefault(x => x.id.Equals(id));
@@ -22,11 +32,21 @@ namespace SchoolGradeManager.Repositories
 
         public void Add(Homework homework)
         {
-            Guid myuuid = Guid.NewGuid();
-            homework.id = myuuid;
-            _context.homeworks.Add(homework);
+            string teacherIdFromSession = _httpContextAccessor.HttpContext.Session.GetString("TeacherId");
 
-            _context.SaveChanges();
+            if (Guid.TryParse(teacherIdFromSession, out Guid teacherIdGuid))
+            {
+                Guid myuuid = Guid.NewGuid();
+                homework.id = myuuid;
+                homework.teacherid = teacherIdGuid;
+                _context.homeworks.Add(homework);
+
+                _context.SaveChanges();
+            }
+            else
+            {
+                Console.WriteLine("Missing guid");
+            }
         }
 
         public void Delete(Guid id)

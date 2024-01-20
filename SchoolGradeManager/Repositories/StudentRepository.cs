@@ -8,9 +8,11 @@ namespace SchoolGradeManager.Repositories
     public class StudentRepository : IStudentRepository
     {
         private readonly StudentManagerContext _context;
-        public StudentRepository(StudentManagerContext context)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public StudentRepository(StudentManagerContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
         public Student Get(Guid id)
         {
@@ -20,7 +22,15 @@ namespace SchoolGradeManager.Repositories
         }
 
 
-        public IQueryable<Student> GetAllActive() => _context.students.Include("grade");
+        public IQueryable<Student> GetAllActive()
+        {
+            string teacherIdFromSession = _httpContextAccessor.HttpContext.Session.GetString("TeacherId");
+
+            return _context.students
+                .Include("grade")
+                .Where(student => student.TeacherId.ToString() == teacherIdFromSession);
+        }
+
 
         public static string HashPassword(string password)
         {
@@ -36,22 +46,33 @@ namespace SchoolGradeManager.Repositories
         public void Add(Student student)
         {
             Guid myuuid = Guid.NewGuid();
-            student.id = myuuid;
-            //student.StudentPassword = BCrypt.Net.BCrypt.HashPassword(student.StudentPassword, BCrypt.Net.BCrypt.GenerateSalt(12));
-            student.StudentPassword = HashPassword(student.StudentPassword).ToLower();
-            _context.students.Add(student);
-            //basic grade template
-            Grade grade = new Grade();
-            Guid myuuid2 = Guid.NewGuid();
-            Console.WriteLine(myuuid2.ToString() + myuuid.ToString());
-            grade.G_Score = 0;
-            grade.student = student;
-            grade.GradeId = myuuid2;
+            string teacherIdFromSession = _httpContextAccessor.HttpContext.Session.GetString("TeacherId");
 
-            _context.grades.Add(grade);
-            _context.SaveChanges();
-            student.GradeId = grade.GradeId;
-            _context.SaveChanges();
+            if (Guid.TryParse(teacherIdFromSession, out Guid teacherIdGuid))
+            {
+                student.id = myuuid;
+                student.TeacherId = teacherIdGuid;
+                //student.StudentPassword = BCrypt.Net.BCrypt.HashPassword(student.StudentPassword, BCrypt.Net.BCrypt.GenerateSalt(12));
+                student.StudentPassword = HashPassword(student.StudentPassword).ToLower();
+
+                _context.students.Add(student);
+                //basic grade template
+                Grade grade = new Grade();
+                Guid myuuid2 = Guid.NewGuid();
+                Console.WriteLine(myuuid2.ToString() + myuuid.ToString());
+                grade.G_Score = 0;
+                grade.student = student;
+                grade.GradeId = myuuid2;
+
+                _context.grades.Add(grade);
+                _context.SaveChanges();
+                student.GradeId = grade.GradeId;
+                _context.SaveChanges();
+            }
+            else
+            {
+                Console.WriteLine("Guid is not correct");
+            }
         }
         public void Delete(Guid id)
         {

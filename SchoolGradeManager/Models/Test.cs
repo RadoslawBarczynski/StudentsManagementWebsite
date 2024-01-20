@@ -17,6 +17,8 @@ namespace SchoolGradeManager.Models
         [DisplayName("isActive")]
         public bool isActive { get; set; }
 
+        public Guid teacherId { get; set; }
+
         public virtual List<TestQuestion> TestQuestions { get; set; }
 
     }

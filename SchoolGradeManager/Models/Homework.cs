@@ -18,5 +18,8 @@ namespace SchoolGradeManager.Models
         [Column("isActive")]
         public bool isActive { get; set; }
 
+        [Column("teacherId")]
+        public Guid teacherid { get; set; }
+
     }
 }

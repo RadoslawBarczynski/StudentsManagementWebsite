@@ -31,6 +31,7 @@ namespace SchoolGradeManager.Controllers
                 {
                     //HttpContext.Session.SetString("username", username);
                     _httpContextAccessor.HttpContext.Session.SetString("username", username);
+                    _httpContextAccessor.HttpContext.Session.SetString("TeacherId", element.id.ToString());
                     return Redirect("Student/Index");
                 }
                 //else

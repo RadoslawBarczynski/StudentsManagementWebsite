@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SchoolGradeManager.Models;
 using SchoolGradeManager.Repositories;
@@ -8,16 +9,25 @@ namespace SchoolTestManager.Repositories
     public class TestRepository : ITestRepository
     {
         private readonly StudentManagerContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public TestRepository(StudentManagerContext context)
+        public TestRepository(StudentManagerContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public Test Get(Guid id) => _context.tests.FirstOrDefault(x => x.id.Equals(id));
 
 
-        public IQueryable<Test> GetAllActive() => _context.tests.Include("TestQuestions.question");
+        public IQueryable<Test> GetAllActive()
+        {
+            string teacherIdFromSession = _httpContextAccessor.HttpContext.Session.GetString("TeacherId");
+
+            return _context.tests
+                .Include("TestQuestions.question")
+                .Where(student => student.teacherId.ToString() == teacherIdFromSession);
+        } //=> _context.tests.Include("TestQuestions.question");
 
         public AddQuestionsToTest ShowQuestions(Guid id)
         {
@@ -106,11 +116,21 @@ namespace SchoolTestManager.Repositories
 
         public void Add(Test test)
         {
-            Guid myuuid = Guid.NewGuid();
-            test.id = myuuid;
-            _context.tests.Add(test);
+            string teacherIdFromSession = _httpContextAccessor.HttpContext.Session.GetString("TeacherId");
 
-            _context.SaveChanges();
+            if (Guid.TryParse(teacherIdFromSession, out Guid teacherIdGuid))
+            {
+                Guid myuuid = Guid.NewGuid();
+                test.id = myuuid;
+                test.teacherId = teacherIdGuid;
+                _context.tests.Add(test);
+
+                _context.SaveChanges();
+            }
+            else
+            {
+                Console.WriteLine("Missing guid");
+            }
         }
 
 
