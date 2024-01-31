@@ -66,7 +66,7 @@ namespace SchoolGradeManager.Controllers
             try
             {
                 string[] DashboardCount = new string[2];
-                NpgsqlConnection con = new NpgsqlConnection("Host=db.melfibfnkmadpskpvist.supabase.co;Database=postgres;Username=postgres;Password=PI3!44EL!!!");
+                NpgsqlConnection con = new NpgsqlConnection("User Id=postgres.melfibfnkmadpskpvist;Password=PI3!44EL!!!;Server=aws-0-eu-central-1.pooler.supabase.com;Port=5432;Database=postgres");
                 con.Open();
                 NpgsqlCommand cmd = con.CreateCommand();
                 cmd.CommandText = "select count(\"Score\") as failed, (select count(\"Score\") from \"Grade\" where \"Score\" > 45) as passed from \"Grade\" where \"Score\" < 46 ";
