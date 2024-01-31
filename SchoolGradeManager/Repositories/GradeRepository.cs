@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using SchoolGradeManager.Models;
@@ -9,16 +10,25 @@ namespace SchoolGradeManager.Repositories
     public class GradeRepository : IGradeRepository
     {
         private readonly StudentManagerContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public GradeRepository(StudentManagerContext context)
+        public GradeRepository(StudentManagerContext context, IHttpContextAccessor httpContextAccessor)
         {
-            _context = context;           
+            _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public Grade Get(Guid id) => _context.grades.FirstOrDefault(x => x.GradeId.Equals(id));
 
 
-        public IQueryable<Grade> GetAllActive() => _context.grades.Include("student");
+        public IQueryable<Grade> GetAllActive()
+        {
+            string teacherIdFromSession = _httpContextAccessor.HttpContext.Session.GetString("TeacherId");
+
+                return _context.grades
+                .Include("student")
+                .Where(grade => grade.student.TeacherId.ToString() == teacherIdFromSession);
+        }
 
 
         public void Delete(Guid id)

@@ -96,6 +96,7 @@ namespace SchoolGradeManager.Repositories
                 result.StudentFirstName = student.StudentFirstName;
                 result.StudentLastName = student.StudentLastName;
                 result.StudentLogin = student.StudentLogin;
+                if(result.StudentPassword != student.StudentPassword)
                 result.StudentPassword = HashPassword(student.StudentPassword).ToLower();
 
                 _context.SaveChanges();

@@ -160,7 +160,12 @@ namespace SchoolTestManager.Repositories
             {
                 result.TestName = Test.TestName;
                 result.isActive = Test.isActive;
-                
+
+                var otherRecords = _context.tests.Where(x => !x.id.Equals(id));
+                foreach (var record in otherRecords)
+                {
+                    record.isActive = false;
+                }
 
                 _context.SaveChanges();
             }

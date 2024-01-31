@@ -18,7 +18,7 @@ namespace SchoolGradeManager.Controllers
         }
 
         // GET: StudentController
-        public ActionResult Index(int page = 1, int pageSize = 3)
+        public ActionResult Index(int page = 1, int pageSize = 5)
         {
             var students = _studentRepository.GetAllActive();
 
